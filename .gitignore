@@ -4,3 +4,6 @@ data.json.tmp
 *.log
 .env
 .DS_Store
+
+# yuborilgan deliverable arxivlari
+*.zip
