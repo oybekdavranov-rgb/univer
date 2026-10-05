@@ -1,0 +1,880 @@
+{
+  "logo": "",
+  "bgVideo": "",
+  "depts": [
+    {
+      "id": "x69lue",
+      "name": {
+        "uz": "Rahbariyat",
+        "en": "Leadership",
+        "ru": "Руководство"
+      },
+      "icon": "crown",
+      "desc": {
+        "uz": "Rektor, prorektorlar va rektorat.",
+        "en": "Rector, vice-rectors and the rectorate.",
+        "ru": "Ректор, проректоры и ректорат."
+      },
+      "children": [],
+      "members": [
+        {
+          "id": "x09lud",
+          "name": {
+            "uz": "Rektor",
+            "en": "Rector",
+            "ru": "Ректор"
+          },
+          "role": {
+            "uz": "Universitet rahbari",
+            "en": "Head of the University",
+            "ru": "Глава университета"
+          },
+          "photo": "",
+          "bio": "",
+          "phone": "",
+          "email": "",
+          "telegram": "",
+          "posts": []
+        },
+        {
+          "id": "x19lue",
+          "name": {
+            "uz": "Birinchi prorektor",
+            "en": "First Vice-Rector",
+            "ru": "Первый проректор"
+          },
+          "role": {
+            "uz": "Yoshlar va xalqaro hamkorlik",
+            "en": "Youth & international cooperation",
+            "ru": "Молодёжь и международное сотрудничество"
+          },
+          "photo": "",
+          "bio": "",
+          "phone": "",
+          "email": "",
+          "telegram": "",
+          "posts": []
+        },
+        {
+          "id": "x29lue",
+          "name": {
+            "uz": "O'quv ishlari bo'yicha prorektor",
+            "en": "Vice-Rector for Academic Affairs",
+            "ru": "Проректор по учебной работе"
+          },
+          "role": {
+            "uz": "Ta'lim jarayoni",
+            "en": "Academic process",
+            "ru": "Учебный процесс"
+          },
+          "photo": "",
+          "bio": "",
+          "phone": "",
+          "email": "",
+          "telegram": "",
+          "posts": []
+        },
+        {
+          "id": "x39lue",
+          "name": {
+            "uz": "Ilmiy ishlar va innovatsiyalar prorektori",
+            "en": "Vice-Rector for Research & Innovation",
+            "ru": "Проректор по науке и инновациям"
+          },
+          "role": {
+            "uz": "Ilm-fan",
+            "en": "Science",
+            "ru": "Наука"
+          },
+          "photo": "",
+          "bio": "",
+          "phone": "",
+          "email": "",
+          "telegram": "",
+          "posts": []
+        },
+        {
+          "id": "x49lue",
+          "name": {
+            "uz": "Moliyaviy-tashkiliy ishlar prorektori",
+            "en": "Vice-Rector for Finance & Administration",
+            "ru": "Проректор по финансово-организационным вопросам"
+          },
+          "role": {
+            "uz": "Moliya va tashkilot",
+            "en": "Finance & administration",
+            "ru": "Финансы и организация"
+          },
+          "photo": "",
+          "bio": "",
+          "phone": "",
+          "email": "",
+          "telegram": "",
+          "posts": []
+        },
+        {
+          "id": "x59lue",
+          "name": {
+            "uz": "Matbuot kotibi",
+            "en": "Press Secretary",
+            "ru": "Пресс-секретарь"
+          },
+          "role": {
+            "uz": "Rektor kotibiyati",
+            "en": "Rector's secretariat",
+            "ru": "Секретариат ректора"
+          },
+          "photo": "",
+          "bio": "",
+          "phone": "",
+          "email": "",
+          "telegram": "",
+          "posts": []
+        }
+      ]
+    },
+    {
+      "id": "xn9lue",
+      "name": {
+        "uz": "Departamentlar",
+        "en": "Departments",
+        "ru": "Департаменты"
+      },
+      "icon": "building",
+      "desc": {
+        "uz": "Boshqaruv va xizmat departamentlari. Har biriga kiring.",
+        "en": "Administrative and service departments. Open each one.",
+        "ru": "Управленческие и служебные департаменты. Откройте каждый."
+      },
+      "children": [
+        {
+          "id": "x89lue",
+          "name": {
+            "uz": "Operatsiyalarni boshqarish departamenti",
+            "en": "Operations Management Department",
+            "ru": "Департамент управления операциями"
+          },
+          "icon": "compass",
+          "desc": {
+            "uz": "",
+            "en": "",
+            "ru": ""
+          },
+          "children": [],
+          "members": [
+            {
+              "id": "x79lue",
+              "name": {
+                "uz": "Departament rahbari",
+                "en": "Department Head",
+                "ru": "Руководитель департамента"
+              },
+              "role": {
+                "uz": "Boshqaruv",
+                "en": "Management",
+                "ru": "Управление"
+              },
+              "photo": "",
+              "bio": "",
+              "phone": "",
+              "email": "",
+              "telegram": "",
+              "posts": []
+            }
+          ]
+        },
+        {
+          "id": "xa9lue",
+          "name": {
+            "uz": "Moliya va buxgalteriya departamenti",
+            "en": "Finance & Accounting Department",
+            "ru": "Финансово-бухгалтерский департамент"
+          },
+          "icon": "chart",
+          "desc": {
+            "uz": "",
+            "en": "",
+            "ru": ""
+          },
+          "children": [],
+          "members": [
+            {
+              "id": "x99lue",
+              "name": {
+                "uz": "Bosh buxgalter",
+                "en": "Chief Accountant",
+                "ru": "Главный бухгалтер"
+              },
+              "role": {
+                "uz": "Moliya",
+                "en": "Finance",
+                "ru": "Финансы"
+              },
+              "photo": "",
+              "bio": "",
+              "phone": "",
+              "email": "",
+              "telegram": "",
+              "posts": []
+            }
+          ]
+        },
+        {
+          "id": "xc9lue",
+          "name": {
+            "uz": "Xalqaro aloqalar departamenti",
+            "en": "International Relations Department",
+            "ru": "Департамент международных связей"
+          },
+          "icon": "globe",
+          "desc": {
+            "uz": "",
+            "en": "",
+            "ru": ""
+          },
+          "children": [],
+          "members": [
+            {
+              "id": "xb9lue",
+              "name": {
+                "uz": "Departament rahbari",
+                "en": "Department Head",
+                "ru": "Руководитель департамента"
+              },
+              "role": {
+                "uz": "Xalqaro aloqalar",
+                "en": "International relations",
+                "ru": "Международные связи"
+              },
+              "photo": "",
+              "bio": "",
+              "phone": "",
+              "email": "",
+              "telegram": "",
+              "posts": []
+            }
+          ]
+        },
+        {
+          "id": "xe9lue",
+          "name": {
+            "uz": "Kadrlar (HR) departamenti",
+            "en": "HR Department",
+            "ru": "Департамент кадров (HR)"
+          },
+          "icon": "users",
+          "desc": {
+            "uz": "",
+            "en": "",
+            "ru": ""
+          },
+          "children": [],
+          "members": [
+            {
+              "id": "xd9lue",
+              "name": {
+                "uz": "Departament rahbari",
+                "en": "Department Head",
+                "ru": "Руководитель департамента"
+              },
+              "role": {
+                "uz": "Kadrlar",
+                "en": "Human resources",
+                "ru": "Кадры"
+              },
+              "photo": "",
+              "bio": "",
+              "phone": "",
+              "email": "",
+              "telegram": "",
+              "posts": []
+            }
+          ]
+        },
+        {
+          "id": "xg9lue",
+          "name": {
+            "uz": "Marketing va aloqa departamenti",
+            "en": "Marketing & Communications Department",
+            "ru": "Департамент маркетинга и коммуникаций"
+          },
+          "icon": "briefcase",
+          "desc": {
+            "uz": "",
+            "en": "",
+            "ru": ""
+          },
+          "children": [],
+          "members": [
+            {
+              "id": "xf9lue",
+              "name": {
+                "uz": "Departament rahbari",
+                "en": "Department Head",
+                "ru": "Руководитель департамента"
+              },
+              "role": {
+                "uz": "Marketing",
+                "en": "Marketing",
+                "ru": "Маркетинг"
+              },
+              "photo": "",
+              "bio": "",
+              "phone": "",
+              "email": "",
+              "telegram": "",
+              "posts": []
+            }
+          ]
+        },
+        {
+          "id": "xi9lue",
+          "name": {
+            "uz": "Axborot texnologiyalari departamenti",
+            "en": "IT Department",
+            "ru": "Департамент информационных технологий"
+          },
+          "icon": "cpu",
+          "desc": {
+            "uz": "",
+            "en": "",
+            "ru": ""
+          },
+          "children": [],
+          "members": [
+            {
+              "id": "xh9lue",
+              "name": {
+                "uz": "Departament rahbari",
+                "en": "Department Head",
+                "ru": "Руководитель департамента"
+              },
+              "role": {
+                "uz": "AT xizmati",
+                "en": "IT service",
+                "ru": "ИТ-служба"
+              },
+              "photo": "",
+              "bio": "",
+              "phone": "",
+              "email": "",
+              "telegram": "",
+              "posts": []
+            }
+          ]
+        },
+        {
+          "id": "xk9lue",
+          "name": {
+            "uz": "Registrator ofisi",
+            "en": "Registrar's Office",
+            "ru": "Офис регистратора"
+          },
+          "icon": "book",
+          "desc": {
+            "uz": "",
+            "en": "",
+            "ru": ""
+          },
+          "children": [],
+          "members": [
+            {
+              "id": "xj9lue",
+              "name": {
+                "uz": "Ofis boshlig'i",
+                "en": "Office Head",
+                "ru": "Начальник офиса"
+              },
+              "role": {
+                "uz": "Registrator",
+                "en": "Registrar",
+                "ru": "Регистратор"
+              },
+              "photo": "",
+              "bio": "",
+              "phone": "",
+              "email": "",
+              "telegram": "",
+              "posts": []
+            }
+          ]
+        },
+        {
+          "id": "xm9lue",
+          "name": {
+            "uz": "Talabalar bilan ishlash departamenti",
+            "en": "Student Affairs Department",
+            "ru": "Департамент по работе со студентами"
+          },
+          "icon": "users",
+          "desc": {
+            "uz": "",
+            "en": "",
+            "ru": ""
+          },
+          "children": [],
+          "members": [
+            {
+              "id": "xl9lue",
+              "name": {
+                "uz": "Departament rahbari",
+                "en": "Department Head",
+                "ru": "Руководитель департамента"
+              },
+              "role": {
+                "uz": "Talabalar",
+                "en": "Students",
+                "ru": "Студенты"
+              },
+              "photo": "",
+              "bio": "",
+              "phone": "",
+              "email": "",
+              "telegram": "",
+              "posts": []
+            }
+          ]
+        }
+      ],
+      "members": []
+    },
+    {
+      "id": "x129lue",
+      "name": {
+        "uz": "Fakultetlar",
+        "en": "Faculties",
+        "ru": "Факультеты"
+      },
+      "icon": "cap",
+      "desc": {
+        "uz": "Fakultetlar, dekanatlar va ularning kafedralari.",
+        "en": "Faculties, deaneries and their departments.",
+        "ru": "Факультеты, деканаты и их кафедры."
+      },
+      "children": [
+        {
+          "id": "xt9lue",
+          "name": {
+            "uz": "Turizm va iqtisodiyot fakulteti",
+            "en": "Faculty of Tourism and Economics",
+            "ru": "Факультет туризма и экономики"
+          },
+          "icon": "cap",
+          "desc": {
+            "uz": "Kafedralar fakultet ichida joylashgan.",
+            "en": "Its departments are nested inside.",
+            "ru": "Кафедры находятся внутри факультета."
+          },
+          "children": [
+            {
+              "id": "xp9lue",
+              "name": {
+                "uz": "Iqtisodiyot kafedrasi",
+                "en": "Department of Economics",
+                "ru": "Кафедра экономики"
+              },
+              "icon": "chart",
+              "desc": {
+                "uz": "",
+                "en": "",
+                "ru": ""
+              },
+              "children": [],
+              "members": [
+                {
+                  "id": "xo9lue",
+                  "name": {
+                    "uz": "Kafedra mudiri",
+                    "en": "Head of Department",
+                    "ru": "Заведующий кафедрой"
+                  },
+                  "role": {
+                    "uz": "Iqtisodiyot",
+                    "en": "Economics",
+                    "ru": "Экономика"
+                  },
+                  "photo": "",
+                  "bio": "",
+                  "phone": "",
+                  "email": "",
+                  "telegram": "",
+                  "posts": []
+                }
+              ]
+            },
+            {
+              "id": "xr9lue",
+              "name": {
+                "uz": "Turizm kafedrasi",
+                "en": "Department of Tourism",
+                "ru": "Кафедра туризма"
+              },
+              "icon": "compass",
+              "desc": {
+                "uz": "",
+                "en": "",
+                "ru": ""
+              },
+              "children": [],
+              "members": [
+                {
+                  "id": "xq9lue",
+                  "name": {
+                    "uz": "Kafedra mudiri",
+                    "en": "Head of Department",
+                    "ru": "Заведующий кафедрой"
+                  },
+                  "role": {
+                    "uz": "Turizm",
+                    "en": "Tourism",
+                    "ru": "Туризм"
+                  },
+                  "photo": "",
+                  "bio": "",
+                  "phone": "",
+                  "email": "",
+                  "telegram": "",
+                  "posts": []
+                }
+              ]
+            }
+          ],
+          "members": [
+            {
+              "id": "xs9lue",
+              "name": {
+                "uz": "Dekan",
+                "en": "Dean",
+                "ru": "Декан"
+              },
+              "role": {
+                "uz": "Fakultet rahbari",
+                "en": "Faculty head",
+                "ru": "Руководитель факультета"
+              },
+              "photo": "",
+              "bio": "",
+              "phone": "",
+              "email": "",
+              "telegram": "",
+              "posts": []
+            }
+          ]
+        },
+        {
+          "id": "x119lue",
+          "name": {
+            "uz": "Ta'lim fakulteti",
+            "en": "Faculty of Education",
+            "ru": "Факультет образования"
+          },
+          "icon": "cap",
+          "desc": {
+            "uz": "Kafedralar fakultet ichida joylashgan.",
+            "en": "Its departments are nested inside.",
+            "ru": "Кафедры находятся внутри факультета."
+          },
+          "children": [
+            {
+              "id": "xv9lue",
+              "name": {
+                "uz": "Ta'lim kafedrasi",
+                "en": "Department of Education",
+                "ru": "Кафедра образования"
+              },
+              "icon": "book",
+              "desc": {
+                "uz": "",
+                "en": "",
+                "ru": ""
+              },
+              "children": [],
+              "members": [
+                {
+                  "id": "xu9lue",
+                  "name": {
+                    "uz": "Kafedra mudiri",
+                    "en": "Head of Department",
+                    "ru": "Заведующий кафедрой"
+                  },
+                  "role": {
+                    "uz": "Ta'lim",
+                    "en": "Education",
+                    "ru": "Образование"
+                  },
+                  "photo": "",
+                  "bio": "",
+                  "phone": "",
+                  "email": "",
+                  "telegram": "",
+                  "posts": []
+                }
+              ]
+            },
+            {
+              "id": "xx9lue",
+              "name": {
+                "uz": "Jahon tillari kafedrasi",
+                "en": "Department of World Languages",
+                "ru": "Кафедра мировых языков"
+              },
+              "icon": "globe",
+              "desc": {
+                "uz": "",
+                "en": "",
+                "ru": ""
+              },
+              "children": [],
+              "members": [
+                {
+                  "id": "xw9lue",
+                  "name": {
+                    "uz": "Kafedra mudiri",
+                    "en": "Head of Department",
+                    "ru": "Заведующий кафедрой"
+                  },
+                  "role": {
+                    "uz": "Jahon tillari",
+                    "en": "World languages",
+                    "ru": "Мировые языки"
+                  },
+                  "photo": "",
+                  "bio": "",
+                  "phone": "",
+                  "email": "",
+                  "telegram": "",
+                  "posts": []
+                }
+              ]
+            },
+            {
+              "id": "xz9lue",
+              "name": {
+                "uz": "Raqamli texnologiyalar kafedrasi",
+                "en": "Department of Digital Technologies",
+                "ru": "Кафедра цифровых технологий"
+              },
+              "icon": "cpu",
+              "desc": {
+                "uz": "",
+                "en": "",
+                "ru": ""
+              },
+              "children": [],
+              "members": [
+                {
+                  "id": "xy9lue",
+                  "name": {
+                    "uz": "Kafedra mudiri",
+                    "en": "Head of Department",
+                    "ru": "Заведующий кафедрой"
+                  },
+                  "role": {
+                    "uz": "Raqamli texnologiyalar",
+                    "en": "Digital technologies",
+                    "ru": "Цифровые технологии"
+                  },
+                  "photo": "",
+                  "bio": "",
+                  "phone": "",
+                  "email": "",
+                  "telegram": "",
+                  "posts": []
+                }
+              ]
+            }
+          ],
+          "members": [
+            {
+              "id": "x109lue",
+              "name": {
+                "uz": "Dekan",
+                "en": "Dean",
+                "ru": "Декан"
+              },
+              "role": {
+                "uz": "Fakultet rahbari",
+                "en": "Faculty head",
+                "ru": "Руководитель факультета"
+              },
+              "photo": "",
+              "bio": "",
+              "phone": "",
+              "email": "",
+              "telegram": "",
+              "posts": []
+            }
+          ]
+        }
+      ],
+      "members": []
+    },
+    {
+      "id": "x169lue",
+      "name": {
+        "uz": "Markazlar",
+        "en": "Centers",
+        "ru": "Центры"
+      },
+      "icon": "atom",
+      "desc": {
+        "uz": "Ilmiy, innovatsion va resurs markazlari.",
+        "en": "Research, innovation and resource centers.",
+        "ru": "Научные, инновационные и ресурсные центры."
+      },
+      "children": [],
+      "members": [
+        {
+          "id": "x139lue",
+          "name": {
+            "uz": "Innovatsion ta'lim texnologiyalari markazi",
+            "en": "Center for Innovative Educational Technologies",
+            "ru": "Центр инновационных образовательных технологий"
+          },
+          "role": {
+            "uz": "Markaz rahbari",
+            "en": "Center Head",
+            "ru": "Руководитель центра"
+          },
+          "photo": "",
+          "bio": "",
+          "phone": "",
+          "email": "",
+          "telegram": "",
+          "posts": []
+        },
+        {
+          "id": "x149lue",
+          "name": {
+            "uz": "Axborot-resurs markazi",
+            "en": "Information Resource Center",
+            "ru": "Информационно-ресурсный центр"
+          },
+          "role": {
+            "uz": "Markaz rahbari",
+            "en": "Center Head",
+            "ru": "Руководитель центра"
+          },
+          "photo": "",
+          "bio": "",
+          "phone": "",
+          "email": "",
+          "telegram": "",
+          "posts": []
+        },
+        {
+          "id": "x159lue",
+          "name": {
+            "uz": "Axborot texnologiyalari markazi",
+            "en": "IT Center",
+            "ru": "Центр информационных технологий"
+          },
+          "role": {
+            "uz": "Markaz rahbari",
+            "en": "Center Head",
+            "ru": "Руководитель центра"
+          },
+          "photo": "",
+          "bio": "",
+          "phone": "",
+          "email": "",
+          "telegram": "",
+          "posts": []
+        }
+      ]
+    },
+    {
+      "id": "x1b9lue",
+      "name": {
+        "uz": "Kengashlar",
+        "en": "Councils",
+        "ru": "Советы"
+      },
+      "icon": "scale",
+      "desc": {
+        "uz": "Kollegial boshqaruv organlari.",
+        "en": "Collegial governing bodies.",
+        "ru": "Коллегиальные органы управления."
+      },
+      "children": [],
+      "members": [
+        {
+          "id": "x179lue",
+          "name": {
+            "uz": "Vasiylik Kengashi",
+            "en": "Board of Trustees",
+            "ru": "Попечительский совет"
+          },
+          "role": {
+            "uz": "Oliy organ",
+            "en": "Supreme body",
+            "ru": "Высший орган"
+          },
+          "photo": "",
+          "bio": "",
+          "phone": "",
+          "email": "",
+          "telegram": "",
+          "posts": []
+        },
+        {
+          "id": "x189lue",
+          "name": {
+            "uz": "Universitet Kengashi",
+            "en": "University Council",
+            "ru": "Совет университета"
+          },
+          "role": {
+            "uz": "Kollegial organ",
+            "en": "Collegial body",
+            "ru": "Коллегиальный орган"
+          },
+          "photo": "",
+          "bio": "",
+          "phone": "",
+          "email": "",
+          "telegram": "",
+          "posts": []
+        },
+        {
+          "id": "x199lue",
+          "name": {
+            "uz": "Ilmiy Kengash",
+            "en": "Academic Council",
+            "ru": "Учёный совет"
+          },
+          "role": {
+            "uz": "Ilmiy siyosat",
+            "en": "Academic policy",
+            "ru": "Научная политика"
+          },
+          "photo": "",
+          "bio": "",
+          "phone": "",
+          "email": "",
+          "telegram": "",
+          "posts": []
+        },
+        {
+          "id": "x1a9lue",
+          "name": {
+            "uz": "Xotin-qizlar kengashi",
+            "en": "Women's Council",
+            "ru": "Совет женщин"
+          },
+          "role": {
+            "uz": "Jamoatchilik",
+            "en": "Community",
+            "ru": "Общественность"
+          },
+          "photo": "",
+          "bio": "",
+          "phone": "",
+          "email": "",
+          "telegram": "",
+          "posts": []
+        }
+      ]
+    }
+  ]
+}

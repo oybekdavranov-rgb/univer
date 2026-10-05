@@ -1,0 +1,1661 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Qo'qon Universiteti — Tashkiliy tuzilma</title>
+<meta name="description" content="Qo'qon Universiteti tashkiliy tuzilmasi: rahbariyat, departamentlar, fakultetlar, markazlar va kengashlar — bo'limlar, a'zolar va aloqa ma'lumotlari.">
+<meta name="theme-color" content="#04050c">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Qo'qon Universiteti — Tashkiliy tuzilma">
+<meta property="og:description" content="Universitet tashkiliy tuzilmasi: bo'limlar, a'zolar va aloqa ma'lumotlari.">
+<meta property="og:image" content="/assets/logo.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/png" href="/assets/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Space+Grotesk:wght@400;500;600;700&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#04050c;
+  --ink:#eef2ff;
+  --muted:#aeb7d6;
+  --faint:#7e88ac;
+  --blue:#2f6bff;
+  --blue-lite:#7fa8ff;
+  --violet:#8b5cf6;
+  --cyan:#28e0ff;
+  --maroon:#a01050;
+  --glass:rgba(255,255,255,.055);
+  --glass-2:rgba(255,255,255,.09);
+  --stroke:rgba(255,255,255,.13);
+  --stroke-2:rgba(255,255,255,.22);
+  --radius:26px;
+  --radius-sm:16px;
+  --display:'Bricolage Grotesque',system-ui,sans-serif;
+  --body:'Space Grotesk',system-ui,-apple-system,sans-serif;
+  --hero:'Unbounded','Bricolage Grotesque',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);background:var(--void);color:var(--ink);
+  min-height:100vh;overflow-x:hidden;position:relative;-webkit-font-smoothing:antialiased;
+  letter-spacing:.1px;
+}
+
+/* ============ BACKGROUND LAYERS ============ */
+#aurora{position:fixed;inset:0;z-index:-3;width:100%;height:100%}
+#bgVideo{position:fixed;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;
+  filter:brightness(.52) saturate(1.2) contrast(1.03) blur(1px);opacity:0;transition:opacity 1.2s ease}
+#bgVideo.on{opacity:1}
+#veil{position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(120% 80% at 50% -10%, rgba(47,107,255,.15), transparent 55%),
+    radial-gradient(90% 70% at 100% 100%, rgba(139,92,246,.15), transparent 60%),
+    linear-gradient(180deg, rgba(4,5,12,.40) 0%, rgba(4,5,12,.54) 45%, rgba(4,5,12,.78) 100%)}
+#grain{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ============ SHELL ============ */
+.shell{position:relative;z-index:2;min-height:100vh;display:flex;flex-direction:column}
+
+/* ============ NAV ============ */
+.nav{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;
+  padding:16px clamp(18px,4vw,54px);
+  background:linear-gradient(180deg,rgba(6,8,18,.72),rgba(6,8,18,.22));
+  backdrop-filter:blur(20px) saturate(1.3);-webkit-backdrop-filter:blur(20px) saturate(1.3);
+  border-bottom:1px solid rgba(255,255,255,.07)}
+.brand{display:flex;align-items:center;gap:12px;cursor:pointer;border:0;background:none}
+.brand img{height:34px;width:auto;display:block}
+.brand .divider{width:1px;height:26px;background:var(--stroke)}
+.brand .tag{font-family:var(--display);font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.3px;white-space:nowrap}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.btn{font-family:var(--display);font-weight:600;font-size:14px;border:0;cursor:pointer;border-radius:100px;
+  padding:11px 20px;transition:transform .25s cubic-bezier(.22,1,.36,1),background .25s,box-shadow .25s,border-color .25s;
+  display:inline-flex;align-items:center;gap:8px;color:var(--ink)}
+.btn:active{transform:scale(.96)}
+.btn-sm{padding:9px 16px;font-size:13px}
+.btn-ghost{background:var(--glass);border:1px solid var(--stroke)}
+.btn-ghost:hover{background:var(--glass-2);border-color:var(--stroke-2)}
+.btn-primary{background:linear-gradient(135deg,var(--blue),var(--violet));box-shadow:0 8px 30px -8px rgba(47,107,255,.6)}
+.btn-primary:hover{box-shadow:0 12px 40px -8px rgba(47,107,255,.8);transform:translateY(-1px)}
+.btn-danger{background:rgba(220,50,80,.16);border:1px solid rgba(220,50,80,.4);color:#ff9db0}
+.btn-danger:hover{background:rgba(220,50,80,.28)}
+
+/* ============ HERO ============ */
+.hero{text-align:center;padding:clamp(46px,9vw,110px) 22px clamp(30px,5vw,56px)}
+.hero .logo-lockup{height:clamp(58px,11vw,104px);width:auto;margin:0 auto 26px;display:block;
+  filter:drop-shadow(0 10px 40px rgba(47,107,255,.35))}
+.hero .eyebrow{display:inline-block;font-family:var(--display);font-size:12.5px;font-weight:600;letter-spacing:2.5px;
+  text-transform:uppercase;color:var(--blue-lite);padding:8px 18px;border-radius:100px;
+  background:var(--glass);border:1px solid var(--stroke);margin-bottom:22px}
+.hero h1{font-family:var(--hero);font-weight:800;font-size:clamp(28px,5.8vw,60px);line-height:1.08;
+  letter-spacing:-2px;margin-bottom:16px;transition:filter .45s ease}
+.hero h1:hover{filter:drop-shadow(0 0 28px rgba(120,150,255,.55))}
+.hero h1 .grad{background:linear-gradient(120deg,var(--blue-lite),var(--violet) 55%,var(--cyan));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:var(--muted);font-size:clamp(15px,2vw,18px);max-width:620px;margin:0 auto;line-height:1.6;transition:color .3s}
+.hero p:hover{color:var(--ink)}
+.stats{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-top:38px}
+.stats .stat:nth-child(1){--sg:47,107,255}
+.stats .stat:nth-child(2){--sg:139,92,246}
+.stats .stat:nth-child(3){--sg:40,224,255}
+.stat{position:relative;background:var(--glass);border:1px solid var(--stroke);border-radius:var(--radius-sm);
+  padding:16px 30px;min-width:126px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  box-shadow:0 0 34px -12px rgba(var(--sg,47,107,255),.6);
+  transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s,border-color .4s}
+.stat::before{content:'';position:absolute;inset:-7px;border-radius:22px;z-index:-1;pointer-events:none;
+  background:radial-gradient(62% 62% at 50% 28%,rgba(var(--sg),.5),transparent 76%);filter:blur(17px);opacity:.72;transition:opacity .4s}
+.stat:hover{transform:translateY(-6px);border-color:rgba(var(--sg),.7);
+  box-shadow:0 0 52px -6px rgba(var(--sg),.8),0 0 96px -24px rgba(var(--sg),.55)}
+.stat:hover::before{opacity:1}
+.stat b{font-family:var(--hero);font-size:27px;font-weight:700;display:block;letter-spacing:-.5px;
+  background:linear-gradient(120deg,#fff,rgba(var(--sg),1));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.stat span{font-size:11.5px;color:var(--faint);letter-spacing:.4px;transition:color .3s}
+.stat:hover span{color:var(--muted)}
+
+/* ============ CONTENT WRAP ============ */
+.wrap{width:min(1200px,100%);margin:0 auto;padding:10px clamp(18px,4vw,54px) 90px;flex:1}
+
+/* breadcrumb / dept header */
+.crumb{display:flex;align-items:center;gap:9px;margin:6px 0 24px;flex-wrap:wrap}
+.crumb-link{display:inline-flex;align-items:center;gap:7px;font-family:var(--body);font-weight:600;font-size:13.5px;
+  color:var(--muted);background:var(--glass);border:1px solid var(--stroke);border-radius:100px;padding:8px 15px;
+  cursor:pointer;transition:color .25s,background .25s,border-color .25s,transform .25s}
+.crumb-link:hover{color:var(--ink);background:var(--glass-2);border-color:var(--stroke-2);transform:translateY(-1px)}
+.crumb-sep{color:var(--faint);font-size:16px;line-height:1}
+.crumb-cur{font-family:var(--body);font-weight:600;font-size:13.5px;color:var(--blue-lite);padding:8px 6px}
+.back-btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:14px;
+  color:var(--ink);background:var(--glass);border:1px solid var(--stroke);border-radius:100px;padding:10px 18px;
+  cursor:pointer;transition:background .25s,border-color .25s,transform .25s}
+.back-btn:hover{background:var(--glass-2);border-color:var(--stroke-2);transform:translateX(-2px)}
+.dept-head{display:flex;align-items:flex-start;gap:20px;margin-bottom:30px;flex-wrap:wrap}
+.dept-head .ic{width:64px;height:64px;border-radius:20px;flex-shrink:0;display:grid;place-items:center;
+  background:linear-gradient(135deg,rgba(47,107,255,.22),rgba(139,92,246,.16));border:1px solid var(--stroke-2);color:var(--blue-lite)}
+.dept-head .ic svg{width:30px;height:30px}
+.dept-head h2{font-family:var(--display);font-weight:700;font-size:clamp(24px,4vw,38px);letter-spacing:-.8px;margin-bottom:6px}
+.dept-head p{color:var(--muted);font-size:15px;max-width:640px;line-height:1.55}
+
+/* ============ GRID ============ */
+.grid{display:grid;gap:20px}
+.grid.depts{grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+.grid.members{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+
+/* shared glass card + signature blue hover glow */
+.card{position:relative;border-radius:var(--radius);overflow:hidden;cursor:pointer;
+  background:linear-gradient(165deg,rgba(255,255,255,.04),rgba(255,255,255,.008));
+  border:1px solid var(--stroke);backdrop-filter:blur(13px) saturate(1.3);-webkit-backdrop-filter:blur(13px) saturate(1.3);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.10);
+  transition:transform .45s cubic-bezier(.22,1,.36,1),border-color .4s,box-shadow .4s}
+.card::before{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .4s;
+  background:radial-gradient(340px circle at var(--mx,50%) var(--my,50%),rgba(47,107,255,.30),rgba(139,92,246,.15) 42%,transparent 66%)}
+.card::after{content:'';position:absolute;inset:-1px;border-radius:inherit;padding:1px;pointer-events:none;opacity:0;transition:opacity .4s;
+  background:radial-gradient(300px circle at var(--mx,50%) var(--my,50%),rgba(130,175,255,.9),transparent 62%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.card:hover{transform:translateY(-8px);border-color:rgba(120,170,255,.35);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 30px 60px -25px rgba(0,0,0,.72),0 0 52px -8px rgba(47,107,255,.5),0 0 96px -22px rgba(139,92,246,.42)}
+.card:hover::before,.card:hover::after{opacity:1}
+
+/* department card */
+.dcard{padding:26px 24px 22px}
+.dcard .ic{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;position:relative;z-index:1;
+  background:linear-gradient(135deg,rgba(47,107,255,.24),rgba(139,92,246,.18));border:1px solid var(--stroke-2);
+  color:var(--blue-lite);margin-bottom:20px}
+.dcard .ic svg{width:28px;height:28px}
+.dcard h3{position:relative;z-index:1;font-family:var(--display);font-weight:600;font-size:20px;letter-spacing:-.4px;margin-bottom:8px}
+.dcard p{position:relative;z-index:1;color:var(--faint);font-size:13.5px;line-height:1.5;min-height:40px}
+.dcard .foot{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;margin-top:18px}
+.dcard .count{font-size:12.5px;color:var(--muted);display:inline-flex;align-items:center;gap:7px}
+.dcard .count b{font-family:var(--display);color:var(--blue-lite);font-weight:600}
+.dcard .go{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;color:var(--faint);
+  background:var(--glass);border:1px solid var(--stroke);transition:.3s}
+.dcard:hover .go{color:var(--blue-lite);background:rgba(47,107,255,.14);transform:translate(2px,-2px)}
+
+/* member (person) card */
+.mcard{padding:24px 20px 20px;text-align:center}
+.mcard .ava{width:96px;height:96px;border-radius:26px;object-fit:cover;display:block;margin:0 auto 16px;position:relative;z-index:1;
+  border:1px solid var(--stroke-2);box-shadow:0 12px 30px -12px rgba(0,0,0,.6)}
+.mcard h3{position:relative;z-index:1;font-family:var(--display);font-weight:600;font-size:17px;letter-spacing:-.3px;margin-bottom:5px}
+.mcard .role{position:relative;z-index:1;color:var(--blue-lite);font-size:12.5px;font-weight:500;line-height:1.4;min-height:34px;
+  display:flex;align-items:center;justify-content:center}
+.mcard .tags{position:relative;z-index:1;display:flex;gap:6px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+.mcard .tg{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;color:var(--faint);
+  background:var(--glass);border:1px solid var(--stroke)}
+.mcard .tg svg{width:15px;height:15px}
+
+/* ===== matn ustiga kursor kelganda rang o'zgarishi ===== */
+.dcard h3,.mcard h3,.lead-card h3,.dept-head h2,.p-hero h2,.role,.dcard p,.dept-head p,.p-bio,.p-section-title,.footer,.p-contacts a{transition:color .3s ease,text-shadow .3s ease}
+.dcard h3:hover,.mcard h3:hover,.lead-card h3:hover{color:var(--cyan);text-shadow:0 0 20px rgba(40,224,255,.55)}
+.dept-head h2:hover,.p-hero h2:hover{color:var(--blue-lite);text-shadow:0 0 22px rgba(127,168,255,.5)}
+.role:hover{color:#fff}
+.dcard p:hover,.dept-head p:hover,.p-bio:hover{color:var(--ink)}
+.p-section-title:hover{color:var(--blue-lite)}
+.eyebrow{transition:color .3s ease,border-color .3s ease,background .3s ease}
+.eyebrow:hover{color:var(--cyan);border-color:rgba(40,224,255,.4)}
+.footer:hover{color:var(--muted)}
+.nav-actions .btn:hover{color:var(--blue-lite)}
+.p-contacts a:hover{color:#fff}
+
+/* ===== yetakchi (eng katta lavozim) kartasi — kattaroq va ajralib turadi ===== */
+.lead-card{grid-column:1/-1;display:flex;gap:30px;align-items:center;text-align:left;padding:30px 34px;
+  background:radial-gradient(130% 150% at 0% 0%,rgba(255,196,90,.11),transparent 52%),linear-gradient(150deg,rgba(255,255,255,.055),rgba(255,255,255,.012));
+  border:1px solid rgba(255,205,120,.32);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 0 62px -18px rgba(255,190,80,.5),0 26px 60px -30px rgba(0,0,0,.72)}
+.lead-card::before{background:radial-gradient(400px circle at var(--mx,50%) var(--my,50%),rgba(255,200,90,.28),rgba(255,150,60,.14) 42%,transparent 66%)}
+.lead-card::after{background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(255,216,140,.9),transparent 62%)}
+.lead-card:hover{transform:translateY(-8px);border-color:rgba(255,216,140,.55);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 0 84px -14px rgba(255,190,80,.66),0 30px 70px -28px rgba(0,0,0,.75)}
+.lead-card .ava{width:152px;height:152px;border-radius:34px;object-fit:cover;margin:0;flex-shrink:0;position:relative;z-index:1;
+  border:2px solid rgba(255,216,140,.42);box-shadow:0 18px 44px -18px rgba(0,0,0,.72)}
+.lead-card .who{position:relative;z-index:1;flex:1;min-width:0}
+.lead-card .badge{display:inline-flex;align-items:center;gap:7px;font-family:var(--body);font-size:12px;font-weight:600;
+  letter-spacing:.4px;color:#ffd88a;background:rgba(255,196,90,.13);border:1px solid rgba(255,205,120,.4);
+  border-radius:100px;padding:6px 14px;margin-bottom:13px}
+.lead-card .badge svg{width:14px;height:14px}
+.lead-card h3{position:relative;z-index:1;font-family:var(--display);font-weight:700;font-size:clamp(22px,3.4vw,32px);letter-spacing:-.6px;margin-bottom:7px}
+.lead-card .role{position:relative;z-index:1;color:#ffcf8f;font-size:clamp(14px,1.8vw,16px);font-weight:600;
+  min-height:auto;display:flex;justify-content:flex-start;text-align:left}
+.lead-card .tags{position:relative;z-index:1;justify-content:flex-start;margin-top:14px}
+@media(max-width:560px){.lead-card{flex-direction:column;text-align:center;padding:28px 22px}
+  .lead-card .who{width:100%}.lead-card .role,.lead-card .tags{justify-content:center}.lead-card .ava{width:120px;height:120px}}
+
+/* admin tools on cards */
+.card-tools{position:absolute;top:12px;right:12px;z-index:6;display:none;gap:6px}
+body.admin .card-tools{display:flex}
+.tool{width:30px;height:30px;padding:0;margin:0;border-radius:9px;display:grid;place-items:center;cursor:pointer;color:#fff;
+  background:rgba(10,14,30,.7);border:1px solid var(--stroke-2);backdrop-filter:blur(6px);transition:.2s;font:inherit;line-height:0;-webkit-appearance:none;appearance:none}
+.tool:hover{background:rgba(47,107,255,.5)}
+.tool.del:hover{background:rgba(220,50,80,.6)}
+.tool:focus-visible,.add-card:focus-visible,.card:focus-visible{outline:2px solid var(--blue-lite);outline-offset:2px}
+
+/* add card */
+.add-card{border:1.6px dashed var(--stroke-2);background:rgba(255,255,255,.012);border-radius:var(--radius);
+  display:none;flex-direction:column;align-items:center;justify-content:center;gap:12px;min-height:180px;cursor:pointer;
+  color:var(--faint);font-family:var(--display);font-weight:600;font-size:14px;transition:.3s}
+body.admin .add-card{display:flex}
+.add-card:hover{border-color:var(--blue-lite);color:var(--blue-lite);background:rgba(47,107,255,.06)}
+.add-card .plus{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-size:24px;
+  background:var(--glass);border:1px solid var(--stroke)}
+
+/* empty state */
+.empty{text-align:center;padding:70px 20px;color:var(--faint)}
+.empty svg{width:54px;height:54px;opacity:.5;margin-bottom:16px}
+.empty p{font-size:15px}
+
+/* ============ MEMBER FULL-SCREEN MODAL ============ */
+.overlay{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:0;
+  background:rgba(3,4,10,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.overlay.open{display:flex;animation:fade .3s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.profile{position:relative;width:100%;height:100%;max-width:1180px;max-height:100vh;overflow-y:auto;
+  background:linear-gradient(160deg,rgba(18,22,42,.9),rgba(8,10,22,.92));
+  border:1px solid var(--stroke);border-radius:0;
+  backdrop-filter:blur(30px) saturate(1.3);-webkit-backdrop-filter:blur(30px) saturate(1.3)}
+@media(min-width:920px){.profile{border-radius:30px;height:min(92vh,900px);margin:auto}}
+.profile .close{position:absolute;top:18px;right:18px;z-index:10;width:42px;height:42px;border-radius:13px;
+  display:grid;place-items:center;cursor:pointer;color:var(--ink);background:rgba(10,14,30,.65);
+  border:1px solid var(--stroke-2);backdrop-filter:blur(8px);transition:.2s}
+.profile .close:hover{background:rgba(220,50,80,.4);transform:rotate(90deg)}
+.p-hero{position:relative;padding:44px clamp(24px,4vw,46px) 30px;
+  background:radial-gradient(120% 120% at 15% 0%, rgba(47,107,255,.22), transparent 55%),
+             radial-gradient(120% 120% at 100% 0%, rgba(139,92,246,.18), transparent 55%);
+  border-bottom:1px solid var(--stroke)}
+.p-hero .row{display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+.p-hero .big-ava{width:150px;height:150px;border-radius:36px;object-fit:cover;flex-shrink:0;
+  border:2px solid rgba(255,255,255,.16);box-shadow:0 24px 60px -20px rgba(0,0,0,.75),0 0 0 6px rgba(47,107,255,.08)}
+.p-hero .who{flex:1;min-width:230px}
+.p-hero .dept-chip{display:inline-flex;align-items:center;gap:7px;font-family:var(--display);font-size:12px;font-weight:600;
+  color:var(--blue-lite);background:var(--glass);border:1px solid var(--stroke);border-radius:100px;padding:6px 14px;margin-bottom:14px}
+.p-hero h2{font-family:var(--display);font-weight:800;font-size:clamp(26px,4vw,40px);letter-spacing:-1px;line-height:1.05;margin-bottom:8px}
+.p-hero .role{color:var(--violet);font-family:var(--display);font-weight:600;font-size:clamp(15px,2vw,18px)}
+.p-hero .role .v2{color:var(--blue-lite)}
+.p-contacts{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.p-contacts a{display:inline-flex;align-items:center;gap:9px;font-family:var(--display);font-weight:500;font-size:13.5px;
+  color:var(--ink);text-decoration:none;background:var(--glass);border:1px solid var(--stroke);border-radius:100px;
+  padding:10px 18px;transition:.25s}
+.p-contacts a:hover{background:var(--glass-2);border-color:var(--blue);transform:translateY(-2px)}
+.p-contacts a svg{width:16px;height:16px;color:var(--blue-lite)}
+.p-body{padding:32px clamp(24px,4vw,46px) 50px}
+.p-section-title{font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--faint);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.p-section-title::after{content:'';flex:1;height:1px;background:var(--stroke)}
+.p-bio{color:var(--muted);font-size:15.5px;line-height:1.75;white-space:pre-wrap;margin-bottom:40px}
+.p-bio.empty-note{color:var(--faint);font-style:italic}
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:620px){.posts{grid-template-columns:repeat(2,1fr)}}
+.post{position:relative;aspect-ratio:1;border-radius:16px;overflow:hidden;cursor:pointer;
+  border:1px solid var(--stroke);background:var(--glass)}
+.post img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.22,1,.36,1)}
+.post:hover img{transform:scale(1.06)}
+.post .cap{position:absolute;inset:0;display:flex;align-items:flex-end;padding:12px;opacity:0;transition:.3s;
+  background:linear-gradient(0deg,rgba(0,0,0,.82),transparent 60%);color:#fff;font-size:12.5px;line-height:1.4}
+.post:hover .cap{opacity:1}
+
+/* lightbox */
+.lightbox{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:24px;
+  background:rgba(2,3,8,.92);backdrop-filter:blur(10px)}
+.lightbox.open{display:flex}
+.lightbox figure{max-width:900px;text-align:center}
+.lightbox img{max-width:100%;max-height:80vh;border-radius:16px;border:1px solid var(--stroke-2)}
+.lightbox figcaption{color:var(--muted);margin-top:16px;font-size:14px;line-height:1.6}
+
+/* ============ FORMS / EDITOR ============ */
+.form-overlay{position:fixed;inset:0;z-index:150;display:none;align-items:center;justify-content:center;padding:20px;
+  background:rgba(3,4,10,.75);backdrop-filter:blur(14px)}
+.form-overlay.open{display:flex;animation:fade .25s ease}
+.form-modal{width:min(560px,100%);max-height:92vh;overflow-y:auto;
+  background:linear-gradient(160deg,rgba(18,22,42,.96),rgba(9,11,24,.97));
+  border:1px solid var(--stroke-2);border-radius:26px;padding:30px}
+.form-modal h3{font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:-.4px;margin-bottom:22px}
+.field{margin-bottom:16px}
+.field label{display:block;font-family:var(--display);font-size:13px;font-weight:600;color:var(--muted);margin-bottom:7px}
+.field input,.field textarea{width:100%;font-family:var(--body);font-size:14.5px;color:var(--ink);
+  background:rgba(255,255,255,.045);border:1px solid var(--stroke);border-radius:13px;padding:12px 15px;transition:.25s;resize:vertical}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--blue);background:rgba(47,107,255,.08);
+  box-shadow:0 0 0 3px rgba(47,107,255,.14)}
+.field textarea{min-height:110px;line-height:1.6}
+.field .hint{font-size:11.5px;color:var(--faint);margin-top:6px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:520px){.two{grid-template-columns:1fr}}
+
+.upload{display:flex;align-items:center;gap:16px}
+.upload-prev{width:80px;height:80px;border-radius:20px;object-fit:cover;border:1px solid var(--stroke-2);background:var(--glass);flex-shrink:0}
+.upload .btns{display:flex;flex-direction:column;gap:8px}
+.file-btn{font-family:var(--display);font-weight:600;font-size:13px;color:var(--ink);cursor:pointer;
+  background:var(--glass);border:1px solid var(--stroke);border-radius:100px;padding:9px 16px;transition:.25s;text-align:center}
+.file-btn:hover{background:var(--glass-2);border-color:var(--blue)}
+.file-btn.clear{color:var(--faint)}
+
+.icon-picker{display:flex;gap:9px;flex-wrap:wrap}
+.icon-opt{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;cursor:pointer;color:var(--muted);
+  background:var(--glass);border:1px solid var(--stroke);transition:.2s}
+.icon-opt svg{width:22px;height:22px}
+.icon-opt:hover{border-color:var(--stroke-2);color:var(--ink)}
+.icon-opt.sel{background:linear-gradient(135deg,rgba(47,107,255,.3),rgba(139,92,246,.24));border-color:var(--blue);color:#fff}
+
+/* posts editor */
+.posts-editor{display:flex;flex-direction:column;gap:10px}
+.pe-item{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.03);border:1px solid var(--stroke);
+  border-radius:14px;padding:10px}
+.pe-item img{width:52px;height:52px;border-radius:11px;object-fit:cover;flex-shrink:0;border:1px solid var(--stroke)}
+.pe-item input{flex:1;background:rgba(255,255,255,.04);border:1px solid var(--stroke);border-radius:10px;
+  padding:9px 12px;color:var(--ink);font-family:var(--body);font-size:13px}
+.pe-item input:focus{outline:none;border-color:var(--blue)}
+.pe-item .rm{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;cursor:pointer;flex-shrink:0;
+  color:#ff9db0;background:rgba(220,50,80,.14);border:1px solid rgba(220,50,80,.3)}
+.pe-item .rm:hover{background:rgba(220,50,80,.3)}
+.pe-add{font-family:var(--display);font-weight:600;font-size:13px;color:var(--blue-lite);cursor:pointer;
+  background:rgba(47,107,255,.1);border:1px dashed var(--blue);border-radius:12px;padding:11px;text-align:center;transition:.25s}
+.pe-add:hover{background:rgba(47,107,255,.2)}
+
+.form-actions{display:flex;gap:12px;margin-top:26px}
+.form-actions .btn{flex:1;justify-content:center}
+
+/* login */
+.login-modal{width:min(400px,100%);text-align:center;
+  background:linear-gradient(160deg,rgba(18,22,42,.96),rgba(9,11,24,.97));
+  border:1px solid var(--stroke-2);border-radius:26px;padding:36px 30px}
+.login-modal .lock{width:60px;height:60px;border-radius:18px;display:grid;place-items:center;margin:0 auto 18px;
+  background:linear-gradient(135deg,var(--blue),var(--violet));color:#fff}
+.login-modal h3{font-family:var(--display);font-weight:700;font-size:21px;margin-bottom:8px}
+.login-modal p{color:var(--faint);font-size:13.5px;margin-bottom:22px}
+
+/* admin bar */
+#adminBar{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(140%);z-index:90;
+  display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:100px;
+  background:linear-gradient(180deg,rgba(20,24,46,.92),rgba(10,12,26,.94));
+  border:1px solid var(--stroke-2);backdrop-filter:blur(20px);box-shadow:0 20px 50px -18px rgba(0,0,0,.8);
+  transition:transform .5s cubic-bezier(.22,1,.36,1);flex-wrap:wrap;justify-content:center;max-width:94vw}
+body.admin #adminBar{transform:translateX(-50%) translateY(0)}
+#adminBar .abtn{font-family:var(--display);font-weight:600;font-size:13px;color:var(--ink);cursor:pointer;
+  background:var(--glass);border:1px solid var(--stroke);border-radius:100px;padding:9px 15px;transition:.25s;
+  display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+#adminBar .abtn:hover{background:var(--glass-2);border-color:var(--blue)}
+#adminBar .abtn svg{width:15px;height:15px}
+#adminBar .sep{width:1px;height:22px;background:var(--stroke)}
+#adminBar .mode{font-family:var(--display);font-size:12px;font-weight:600;color:var(--cyan);padding-left:6px;display:flex;align-items:center;gap:7px}
+#adminBar .dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+
+/* toast */
+#toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(30px);z-index:300;opacity:0;
+  pointer-events:none;transition:.35s;font-family:var(--display);font-weight:600;font-size:14px;color:#fff;
+  padding:13px 22px;border-radius:100px;background:linear-gradient(135deg,var(--blue),var(--violet));
+  box-shadow:0 14px 40px -10px rgba(47,107,255,.7)}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+.footer{text-align:center;padding:30px 20px;color:var(--faint);font-size:12.5px;border-top:1px solid rgba(255,255,255,.06)}
+.footer b{color:var(--muted)}
+
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:10px;border:3px solid transparent;background-clip:content-box}
+::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,.22);background-clip:content-box}
+
+/* ===== 3D karta egilishi ===== */
+.grid .card{will-change:transform}
+
+/* ===== nav: qidiruv tugmasi + til almashtirgich ===== */
+.icon-btn{width:40px;height:40px;border-radius:100px;display:grid;place-items:center;cursor:pointer;color:var(--ink);
+  background:var(--glass);border:1px solid var(--stroke);transition:.25s}
+.icon-btn:hover{background:var(--glass-2);border-color:var(--blue);color:var(--blue-lite);transform:translateY(-1px)}
+.icon-btn svg{width:18px;height:18px}
+.lang-switch{display:flex;gap:2px;padding:3px;border-radius:100px;background:var(--glass);border:1px solid var(--stroke)}
+.lang-switch button{font-family:var(--display);font-weight:600;font-size:12px;color:var(--faint);cursor:pointer;
+  background:none;border:0;border-radius:100px;padding:6px 11px;transition:.2s;letter-spacing:.3px}
+.lang-switch button:hover{color:var(--ink)}
+.lang-switch button.active{background:linear-gradient(135deg,var(--blue),var(--violet));color:#fff;box-shadow:0 4px 14px -4px rgba(47,107,255,.6)}
+
+/* ===== qidiruv oynasi ===== */
+.search-overlay{position:fixed;inset:0;z-index:180;display:none;justify-content:center;align-items:flex-start;padding:78px 20px 20px;
+  background:rgba(3,4,10,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.search-overlay.open{display:flex;animation:fade .25s ease}
+.search-box{width:min(640px,100%);max-height:80vh;display:flex;flex-direction:column;
+  background:linear-gradient(160deg,rgba(18,22,42,.96),rgba(9,11,24,.97));
+  border:1px solid var(--stroke-2);border-radius:24px;overflow:hidden;box-shadow:0 40px 90px -30px rgba(0,0,0,.8)}
+.search-head{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid var(--stroke)}
+.search-head .s-ic{width:22px;height:22px;color:var(--blue-lite);flex-shrink:0}
+.search-head input{flex:1;background:none;border:0;outline:none;color:var(--ink);font-family:var(--body);font-size:17px;min-width:0}
+.search-head input::placeholder{color:var(--faint)}
+.search-head .s-close{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;cursor:pointer;color:var(--muted);
+  background:var(--glass);border:1px solid var(--stroke);flex-shrink:0;transition:.2s}
+.search-head .s-close:hover{background:rgba(220,50,80,.3);color:#fff}
+.search-head .s-close svg{width:16px;height:16px}
+.search-results{overflow-y:auto;padding:10px}
+.s-item{display:flex;align-items:center;gap:14px;padding:11px 12px;border-radius:14px;cursor:pointer;transition:background .2s}
+.s-item:hover{background:var(--glass)}
+.s-item .s-ava{width:46px;height:46px;border-radius:13px;object-fit:cover;flex-shrink:0;border:1px solid var(--stroke)}
+.s-item .s-dept-ic{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;flex-shrink:0;
+  background:linear-gradient(135deg,rgba(47,107,255,.2),rgba(139,92,246,.16));border:1px solid var(--stroke-2);color:var(--blue-lite)}
+.s-item .s-dept-ic svg{width:22px;height:22px}
+.s-item .s-info{flex:1;min-width:0}
+.s-item .s-name{font-family:var(--display);font-weight:600;font-size:15px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.s-item .s-role{font-size:12.5px;color:var(--blue-lite);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.s-item .s-path{font-size:11px;color:var(--faint);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.s-item .s-badge{font-size:10px;font-weight:600;color:var(--faint);background:var(--glass);border:1px solid var(--stroke);border-radius:100px;padding:3px 9px;flex-shrink:0}
+.search-empty{text-align:center;padding:40px 20px;color:var(--faint);font-size:14px}
+
+@media(max-width:560px){
+  .nav-actions #homeBtn{display:none}
+  .lang-switch button{padding:6px 9px;font-size:11px}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.01ms!important;transition-duration:.05ms!important;scroll-behavior:auto!important}
+  #bgVideo{filter:brightness(.52) saturate(1.15)}
+  .reveal{opacity:1!important;transform:none!important}
+}
+
+/* ============ PRELOADER ============ */
+#preloader{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle at 50% 42%, #0a1024 0%, #04050c 72%);
+  transition:opacity .8s ease, visibility .8s ease}
+#preloader.done{opacity:0;visibility:hidden}
+.pre-center{display:flex;flex-direction:column;align-items:center;gap:30px;transform:translateY(-2%)}
+.pre-logo{position:relative;display:flex;align-items:center;justify-content:center;padding:16px 26px}
+.pre-logo::before{content:'';position:absolute;inset:-24px;border-radius:44px;z-index:-1;
+  background:radial-gradient(circle, rgba(47,107,255,.30), rgba(139,92,246,.14) 45%, transparent 72%);
+  filter:blur(22px);animation:prePulse 2.1s ease-in-out infinite}
+.pre-logo img{height:clamp(46px,9vw,70px);width:auto;display:block;animation:preFloat 2.1s ease-in-out infinite}
+@keyframes preFloat{0%,100%{filter:drop-shadow(0 0 18px rgba(47,107,255,.45));transform:translateY(0)}
+  50%{filter:drop-shadow(0 0 42px rgba(139,92,246,.7));transform:translateY(-5px)}}
+@keyframes prePulse{0%,100%{opacity:.55;transform:scale(.94)}50%{opacity:1;transform:scale(1.08)}}
+.pre-track{width:min(240px,60vw);height:4px;border-radius:100px;background:rgba(255,255,255,.09);overflow:hidden;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.04)}
+.pre-bar{height:100%;width:0%;border-radius:100px;
+  background:linear-gradient(90deg,var(--blue),var(--violet) 55%,var(--cyan));
+  box-shadow:0 0 18px rgba(47,107,255,.75);transition:width .18s ease}
+.pre-pct{font-family:var(--hero);font-weight:600;font-size:13px;letter-spacing:2px;
+  background:linear-gradient(120deg,#fff,var(--blue-lite));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* ============ SCROLL-REVEAL ANIMATSIYALAR ============ */
+.reveal{opacity:0;transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1);will-change:opacity,transform}
+.reveal.r-up{transform:translateY(48px)}
+.reveal.r-down{transform:translateY(-42px)}
+.reveal.r-left{transform:translateX(-56px)}
+.reveal.r-right{transform:translateX(56px)}
+.reveal.r-scale{transform:scale(.84)}
+.reveal.r-rot{transform:translateY(42px) rotate(-4deg)}
+.reveal.r-blur{transform:translateY(30px);filter:blur(10px)}
+.reveal.in{opacity:1;transform:none;filter:none}
+.lang-note{font-family:var(--body);font-size:12px;line-height:1.5;color:var(--blue-lite);
+  background:rgba(47,107,255,.08);border:1px solid rgba(47,107,255,.22);border-radius:12px;
+  padding:9px 13px;margin-bottom:16px}
+.lang-note b{color:#fff}
+
+</style>
+</head>
+<body>
+<noscript>
+  <div style="max-width:720px;margin:60px auto;padding:0 20px;font-family:system-ui,sans-serif;color:#eef2ff;text-align:center">
+    <h1 style="font-size:24px;margin-bottom:12px">Qo'qon Universiteti — Tashkiliy tuzilma</h1>
+    <p style="color:#aeb7d6;line-height:1.6">Bu sayt to'liq ko'rinishi uchun JavaScript yoqilgan bo'lishi kerak. Iltimos, brauzeringizda JavaScript'ni yoqing.</p>
+    <p style="color:#aeb7d6;line-height:1.6">This site requires JavaScript to be enabled. Please enable JavaScript in your browser.</p>
+  </div>
+</noscript>
+<div id="preloader">
+  <div class="pre-center">
+    <div class="pre-logo"><img src="/assets/logo.png" alt="Kokand University"></div>
+    <div class="pre-track"><div class="pre-bar" id="preBar"></div></div>
+    <div class="pre-pct" id="prePct">0%</div>
+  </div>
+</div>
+
+<canvas id="aurora"></canvas>
+<video id="bgVideo" autoplay muted loop playsinline preload="auto"></video>
+<div id="veil"></div>
+<div id="grain"></div>
+
+<div class="shell">
+  <nav class="nav">
+    <button class="brand" onclick="brandTap()" aria-label="Bosh sahifa">
+      <img id="brandLogo" src="/assets/logo.png" alt="Kokand University">
+      <span class="divider"></span>
+      <span class="tag" data-i18n="tagline">Tashkiliy tuzilma</span>
+    </button>
+    <div class="nav-actions">
+      <button class="btn btn-ghost btn-sm" id="homeBtn" onclick="goHome()" data-i18n="nav_home">Bo'limlar</button>
+      <button class="icon-btn" id="searchBtn" onclick="openSearch()" aria-label="Qidirish" title="Qidirish">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      </button>
+      <div class="lang-switch" id="langSwitch">
+        <button data-lang="uz" onclick="setLang('uz')">UZ</button>
+        <button data-lang="en" onclick="setLang('en')">EN</button>
+        <button data-lang="ru" onclick="setLang('ru')">RU</button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="app"><div style="padding:120px 20px;text-align:center;color:var(--faint);font-family:var(--body)" data-i18n="loading">Yuklanmoqda…</div></div>
+
+  <div class="footer">
+    <b>Qo'qon Universiteti</b> — <span data-i18n="tagline">Tashkiliy tuzilma</span> · <span id="yr"></span>
+  </div>
+</div>
+
+<!-- MEMBER FULL-SCREEN PROFILE -->
+<div class="overlay" id="memberOverlay" onclick="if(event.target===this)closeMember()">
+  <div class="profile" id="profile" role="dialog" aria-modal="true">
+    <div class="close" onclick="closeMember()" aria-label="Yopish">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </div>
+    <div id="profileContent"></div>
+  </div>
+</div>
+
+<!-- SEARCH -->
+<div class="search-overlay" id="searchOverlay" onclick="if(event.target===this)closeSearch()">
+  <div class="search-box" role="dialog" aria-modal="true">
+    <div class="search-head">
+      <svg class="s-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="searchInput" oninput="doSearch(this.value)" onkeydown="if(event.key==='Escape')closeSearch()" autocomplete="off">
+      <button class="s-close" onclick="closeSearch()" aria-label="Yopish">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <figure>
+    <img id="lbImg" src="" alt="">
+    <figcaption id="lbCap"></figcaption>
+  </figure>
+</div>
+
+<!-- FORM MODAL -->
+<div class="form-overlay" id="formOverlay" onclick="if(event.target===this)closeForm()">
+  <div class="form-modal" id="formModal" role="dialog" aria-modal="true">
+    <div id="formContent"></div>
+  </div>
+</div>
+
+<!-- LOGIN -->
+<div class="form-overlay" id="loginOverlay" onclick="if(event.target===this)closeOverlay('loginOverlay')">
+  <div class="login-modal" role="dialog" aria-modal="true">
+    <div class="lock"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+    <h3 data-i18n="login_title">Admin panel</h3>
+    <p data-i18n="login_sub">Tahrirlash uchun parolni kiriting</p>
+    <div class="field"><input type="password" id="loginPass" data-i18n-ph="login_ph" placeholder="Parol" onkeydown="if(event.key==='Enter')doLogin()"></div>
+    <div class="form-actions">
+      <button class="btn btn-ghost" onclick="closeOverlay('loginOverlay')" data-i18n="cancel">Bekor</button>
+      <button class="btn btn-primary" onclick="doLogin()" data-i18n="login_btn">Kirish</button>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN BAR -->
+<div id="adminBar">
+  <span class="mode"><span class="dot"></span><span data-i18n="edit_mode">Tahrirlash rejimi</span><span id="saveDot" title="Serverga saqlanmoqda" style="width:7px;height:7px;border-radius:50%;background:#ffd479;margin-left:8px;opacity:0;transition:opacity .3s;box-shadow:0 0 8px #ffd479"></span></span>
+  <span class="sep"></span>
+  <button class="abtn" onclick="openSettings()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg><span data-i18n="settings">Sozlama</span></button>
+  <button class="abtn" onclick="exportData()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span data-i18n="export">Eksport</span></button>
+  <button class="abtn" onclick="document.getElementById('importFile').click()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 8l5-5 5 5M12 3v12"/></svg><span data-i18n="import">Import</span></button>
+  <span class="sep"></span>
+  <button class="abtn" onclick="logout()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg><span data-i18n="logout">Chiqish</span></button>
+  <input type="file" id="importFile" accept="application/json" style="display:none" onchange="importData(event)">
+</div>
+
+<div id="toast"></div>
+
+<script>
+/* =====================================================================
+   QO'QON UNIVERSITETI — TASHKILIY TUZILMA  (frontend)
+   Ma'lumot SERVERDA saqlanadi (backend API orqali).
+   Admin PAROLI serverda o'rnatiladi (server.js / .env -> ADMIN_PASSWORD).
+   ===================================================================== */
+
+/* fon videosi (public/assets/bg.mp4) — admin sozlamada URL bilan almashtira oladi */
+var EMBED_VIDEO = "/assets/bg.mp4";
+
+/* =====================================================================
+   I18N — uz / en / ru
+   ===================================================================== */
+var I18N = {
+  uz:{ tagline:"Tashkiliy tuzilma", nav_home:"Bo'limlar", eyebrow:"Tashkiliy tuzilma",
+    hero_1:"Universitet", hero_2:"tashkiliy tuzilmasi",
+    hero_sub:"Har bir bo'limni tanlang — ichida ichki bo'limlar, a'zolar va batafsil ma'lumotlar bor.",
+    stat_depts:"Bo'lim", stat_members:"A'zo", stat_year:"O'quv yili",
+    add_dept:"Yangi bo'lim qo'shish", add_subdept:"Ichki bo'lim qo'shish", add_member:"A'zo qo'shish",
+    all_depts:"Barcha bo'limlar", sub_depts:"Ichki bo'limlar", members:"A'zolar",
+    empty_node:"Bu bo'lim hozircha bo'sh.", count_dept:"bo'lim", count_member:"a'zo", open:"Ochish",
+    lead_badge:"Bo'lim rahbari", unnamed:"Ismsiz", profile_info:"Ma'lumot", profile_posts:"Lavhalar",
+    no_info:"Ma'lumot hali kiritilmagan.", edit:"Tahrirlash", del:"O'chirish", lang_note_1:"Hozir", lang_note_2:"tilida tahrirlanyapti — boshqa tilga tarjima uchun yuqoridagi tilni almashtiring.",
+    search:"Qidirish", search_ph:"Ism yoki familiya bo'yicha qidiring...", search_none:"Hech narsa topilmadi",
+    login_title:"Admin panel", login_sub:"Tahrirlash uchun parolni kiriting", login_ph:"Parol",
+    cancel:"Bekor", login_btn:"Kirish", login_checking:"Tekshirilmoqda...",
+    edit_mode:"Tahrirlash rejimi", settings:"Sozlama", export:"Eksport", import:"Import", logout:"Chiqish",
+    dept_new:"Yangi bo'lim", dept_edit:"Bo'limni tahrirlash", dept_name:"Bo'lim nomi",
+    dept_name_ph:"Masalan: Departamentlar", dept_desc:"Qisqa tavsif", dept_desc_ph:"Bo'lim haqida bir jumla",
+    icon:"Ikonka", save:"Saqlash",
+    member_new:"Yangi a'zo", member_edit:"A'zoni tahrirlash", photo:"Profil rasmi",
+    photo_upload:"Rasm yuklash", photo_remove:"Rasmni olib tashlash", full_name:"To'liq ism",
+    full_name_ph:"Familiya Ism Sharif", role:"Lavozim", role_ph:"Masalan: Dekan", bio:"Bio / ma'lumot",
+    bio_ph:"Faoliyat, yutuqlar, mas'uliyat, ma'lumot... (bir necha qator)",
+    phone:"Telefon", email:"Email", telegram:"Telegram", telegram_ph:"@username yoki havola",
+    posts_label:"Lavhalar (rasm + izoh, instagram uslubida)", add_photo:"+ Rasm qo'shish", caption_ph:"Izoh (ixtiyoriy)",
+    settings_title:"Sozlamalar", logo_label:"Logotip (nav va sarlavha)", logo_upload:"Logotip yuklash",
+    logo_default:"Standart logotip", video_label:"Orqa fon videosi (MP4 havola)",
+    video_hint:"Bo'sh qoldirsangiz — yuklangan standart video ishlaydi.", data_manage:"Ma'lumotlarni boshqarish",
+    export_all:"↓ Barchasini JSON eksport qilish", reset_default:"Standart tuzilmaga qaytarish", loading:"Yuklanmoqda…",
+    t_saved:"Saqlandi", t_deleted:"O'chirildi", t_wrong_pass:"Parol noto'g'ri", t_login_ok:"Tahrirlash rejimi yoqildi",
+    t_too_many:"Juda ko'p urinish — birozdan so'ng qayting", t_save_too_large:"Rasm juda katta — kichikroq rasm tanlang",
+    move_up:"Yuqoriga", move_down:"Pastga",
+    t_logout:"Tahrirlash rejimidan chiqdingiz", t_already_admin:"Tahrirlash rejimi allaqachon yoqilgan",
+    t_settings_saved:"Sozlamalar saqlandi", t_export_ok:"Eksport qilindi", t_export_err:"Eksportda xato",
+    t_import_ok:"Import muvaffaqiyatli", t_import_err:"Fayl noto'g'ri", t_reset_ok:"Standart tuzilma qaytarildi",
+    t_dept_name_req:"Bo'lim nomini kiriting", t_member_req:"Ism yoki lavozimni kiriting",
+    t_conn_err:"Serverga ulanib bo'lmadi", t_save_fail_server:"Saqlanmadi — server xatosi",
+    t_save_fail_net:"Saqlanmadi — server yoki internet?", t_session_end:"Sessiya tugadi — qaytadan kiring",
+    t_load_fail:"Serverga ulanib bo'lmadi — standart ko'rinish",
+    c_del_inner:" va uning ichidagi barcha bo'lim/a'zolar", c_del_q:" o'chirilsinmi?",
+    c_reset:"Barcha o'zgarishlar o'chib, standart tuzilma qaytariladi. Davom etamizmi?" },
+
+  en:{ tagline:"Organizational Structure", nav_home:"Departments", eyebrow:"Organizational Structure",
+    hero_1:"University", hero_2:"organizational structure",
+    hero_sub:"Select any department — explore its sub-departments, members and detailed information.",
+    stat_depts:"Departments", stat_members:"Members", stat_year:"Academic year",
+    add_dept:"Add department", add_subdept:"Add sub-department", add_member:"Add member",
+    all_depts:"All departments", sub_depts:"Sub-departments", members:"Members",
+    empty_node:"This department is empty for now.", count_dept:"dept.", count_member:"members", open:"Open",
+    lead_badge:"Head of department", unnamed:"Unnamed", profile_info:"Information", profile_posts:"Gallery",
+    no_info:"No information added yet.", edit:"Edit", del:"Delete", lang_note_1:"Editing in", lang_note_2:"— switch the language at the top to translate into another language.",
+    search:"Search", search_ph:"Search by name or surname...", search_none:"Nothing found",
+    login_title:"Admin panel", login_sub:"Enter password to edit", login_ph:"Password",
+    cancel:"Cancel", login_btn:"Sign in", login_checking:"Checking...",
+    edit_mode:"Edit mode", settings:"Settings", export:"Export", import:"Import", logout:"Log out",
+    dept_new:"New department", dept_edit:"Edit department", dept_name:"Department name",
+    dept_name_ph:"e.g. Departments", dept_desc:"Short description", dept_desc_ph:"One line about the department",
+    icon:"Icon", save:"Save",
+    member_new:"New member", member_edit:"Edit member", photo:"Profile photo",
+    photo_upload:"Upload photo", photo_remove:"Remove photo", full_name:"Full name",
+    full_name_ph:"Full name", role:"Position", role_ph:"e.g. Dean", bio:"Bio / information",
+    bio_ph:"Activity, achievements, responsibilities... (a few lines)",
+    phone:"Phone", email:"Email", telegram:"Telegram", telegram_ph:"@username or link",
+    posts_label:"Gallery (image + caption, Instagram-style)", add_photo:"+ Add image", caption_ph:"Caption (optional)",
+    settings_title:"Settings", logo_label:"Logo (nav & header)", logo_upload:"Upload logo",
+    logo_default:"Default logo", video_label:"Background video (MP4 URL)",
+    video_hint:"Leave empty to use the default video.", data_manage:"Manage data",
+    export_all:"↓ Export everything as JSON", reset_default:"Reset to default structure", loading:"Loading…",
+    t_saved:"Saved", t_deleted:"Deleted", t_wrong_pass:"Wrong password", t_login_ok:"Edit mode enabled",
+    t_too_many:"Too many attempts — try again later", t_save_too_large:"Image too large — pick a smaller one",
+    move_up:"Move up", move_down:"Move down",
+    t_logout:"You have logged out", t_already_admin:"Edit mode is already on",
+    t_settings_saved:"Settings saved", t_export_ok:"Exported", t_export_err:"Export error",
+    t_import_ok:"Import successful", t_import_err:"Invalid file", t_reset_ok:"Reset to default",
+    t_dept_name_req:"Enter a department name", t_member_req:"Enter a name or position",
+    t_conn_err:"Could not connect to server", t_save_fail_server:"Not saved — server error",
+    t_save_fail_net:"Not saved — server/network?", t_session_end:"Session ended — sign in again",
+    t_load_fail:"Could not reach server — default view",
+    c_del_inner:" and all its sub-departments/members", c_del_q:" — delete?",
+    c_reset:"All changes will be lost and the default structure restored. Continue?" },
+
+  ru:{ tagline:"Организационная структура", nav_home:"Отделы", eyebrow:"Оргструктура",
+    hero_1:"Структура", hero_2:"университета",
+    hero_sub:"Выберите отдел — внутри подотделы, сотрудники и подробная информация.",
+    stat_depts:"Отделы", stat_members:"Сотрудники", stat_year:"Учебный год",
+    add_dept:"Добавить отдел", add_subdept:"Добавить подотдел", add_member:"Добавить сотрудника",
+    all_depts:"Все отделы", sub_depts:"Подотделы", members:"Сотрудники",
+    empty_node:"Этот отдел пока пуст.", count_dept:"отд.", count_member:"чел.", open:"Открыть",
+    lead_badge:"Руководитель", unnamed:"Без имени", profile_info:"Информация", profile_posts:"Галерея",
+    no_info:"Информация ещё не добавлена.", edit:"Редактировать", del:"Удалить", lang_note_1:"Редактирование на языке", lang_note_2:"— переключите язык вверху для перевода на другой язык.",
+    search:"Поиск", search_ph:"Поиск по имени или фамилии...", search_none:"Ничего не найдено",
+    login_title:"Админ-панель", login_sub:"Введите пароль для редактирования", login_ph:"Пароль",
+    cancel:"Отмена", login_btn:"Войти", login_checking:"Проверка...",
+    edit_mode:"Режим редактирования", settings:"Настройки", export:"Экспорт", import:"Импорт", logout:"Выйти",
+    dept_new:"Новый отдел", dept_edit:"Редактировать отдел", dept_name:"Название отдела",
+    dept_name_ph:"Напр.: Департаменты", dept_desc:"Краткое описание", dept_desc_ph:"Одно предложение об отделе",
+    icon:"Иконка", save:"Сохранить",
+    member_new:"Новый сотрудник", member_edit:"Редактировать сотрудника", photo:"Фото профиля",
+    photo_upload:"Загрузить фото", photo_remove:"Удалить фото", full_name:"Полное имя",
+    full_name_ph:"Фамилия Имя Отчество", role:"Должность", role_ph:"Напр.: Декан", bio:"Био / информация",
+    bio_ph:"Деятельность, достижения, обязанности... (несколько строк)",
+    phone:"Телефон", email:"Эл. почта", telegram:"Telegram", telegram_ph:"@username или ссылка",
+    posts_label:"Галерея (фото + подпись)", add_photo:"+ Добавить фото", caption_ph:"Подпись (необязательно)",
+    settings_title:"Настройки", logo_label:"Логотип (шапка)", logo_upload:"Загрузить логотип",
+    logo_default:"Стандартный логотип", video_label:"Фоновое видео (ссылка MP4)",
+    video_hint:"Оставьте пустым — будет стандартное видео.", data_manage:"Управление данными",
+    export_all:"↓ Экспорт всего в JSON", reset_default:"Сбросить к стандартной структуре", loading:"Загрузка…",
+    t_saved:"Сохранено", t_deleted:"Удалено", t_wrong_pass:"Неверный пароль", t_login_ok:"Режим редактирования включён",
+    t_too_many:"Слишком много попыток — повторите позже", t_save_too_large:"Изображение слишком большое — выберите меньше",
+    move_up:"Вверх", move_down:"Вниз",
+    t_logout:"Вы вышли из режима", t_already_admin:"Режим уже включён",
+    t_settings_saved:"Настройки сохранены", t_export_ok:"Экспортировано", t_export_err:"Ошибка экспорта",
+    t_import_ok:"Импорт выполнен", t_import_err:"Неверный файл", t_reset_ok:"Сброшено к стандарту",
+    t_dept_name_req:"Введите название отдела", t_member_req:"Введите имя или должность",
+    t_conn_err:"Не удалось подключиться к серверу", t_save_fail_server:"Не сохранено — ошибка сервера",
+    t_save_fail_net:"Не сохранено — сервер/сеть?", t_session_end:"Сессия истекла — войдите снова",
+    t_load_fail:"Сервер недоступен — стандартный вид",
+    c_del_inner:" и все его подотделы/сотрудники", c_del_q:" — удалить?",
+    c_reset:"Все изменения будут удалены и восстановлена стандартная структура. Продолжить?" }
+};
+var lang = (function(){ try{ return localStorage.getItem('ku_lang')||'uz'; }catch(e){ return 'uz'; } })();
+if(!I18N[lang]) lang='uz';
+function t(k){ var d=I18N[lang]; return (d && d[k]!=null) ? d[k] : (I18N.uz[k]!=null ? I18N.uz[k] : k); }
+/* KONTENT tarjimasi: nom/lavozim/tavsif har til uchun {uz,en,ru} ko'rinishida saqlanadi */
+function tx(v){
+  if(v==null) return "";
+  if(typeof v==='object'){ return v[lang] || v.uz || v.en || v.ru || _firstVal(v) || ""; }
+  return String(v);                        /* eski (bir tilli) matn */
+}
+function _firstVal(o){ for(var k in o){ if(o[k]) return o[k]; } return ""; }
+function setTx(existing, value){
+  var obj = (existing && typeof existing==='object') ? Object.assign({}, existing) : {};
+  if(typeof existing==='string' && existing && !obj.uz) obj.uz = existing;   /* eski matnni saqlab qolamiz */
+  obj[lang] = value;
+  return obj;
+}
+function setLang(l){
+  if(!I18N[l]) return; lang=l;
+  try{ localStorage.setItem('ku_lang', l); }catch(e){}
+  try{ document.documentElement.lang = l; }catch(e){}
+  applyStaticI18n(); render();
+  /* ochiq a'zo profilini ham yangi tilda yangilaymiz */
+  try{
+    if(document.getElementById('memberOverlay').classList.contains('open') && openMemberRef && openMemberRef.memId){
+      openMember(openMemberRef.deptId, openMemberRef.memId);
+    }
+  }catch(e){}
+}
+function applyStaticI18n(){
+  document.querySelectorAll('[data-i18n]').forEach(function(el){ el.textContent = t(el.getAttribute('data-i18n')); });
+  document.querySelectorAll('[data-i18n-ph]').forEach(function(el){ el.setAttribute('placeholder', t(el.getAttribute('data-i18n-ph'))); });
+  document.querySelectorAll('.lang-switch button').forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-lang')===lang); });
+}
+
+/* ---------- ICONS ---------- */
+var ICONS = {
+  crown:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m2 8 4.5 4L12 5l5.5 7L22 8l-2 11H4L2 8z"/><path d="M4 19h16"/></svg>',
+  building:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M9 6h.01M15 6h.01M9 10h.01M15 10h.01M9 14h.01M15 14h.01"/></svg>',
+  cap:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.5 2 6 2s6-1 6-2v-5"/></svg>',
+  book:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>',
+  atom:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1.6"/><path d="M20.2 20.2c1.9-1.9-.6-6.6-5.6-11.6S4.1 1.9 2.2 3.8s.6 6.6 5.6 11.6 9.5 6.7 11.4 4.8z"/><path d="M3.8 20.2c-1.9-1.9.6-6.6 5.6-11.6S18.1 1.9 20 3.8s-.6 6.6-5.6 11.6-9.5 6.7-11.4 4.8z"/></svg>',
+  users:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+  globe:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg>',
+  chart:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg>',
+  cpu:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg>',
+  compass:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 8-2 6-6 2 2-6 6-2z"/></svg>',
+  scale:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M7 6h10M5 6l-3 7h6L5 6zM19 6l-3 7h6l-3-7zM6 21h12"/></svg>',
+  briefcase:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>'
+};
+var ICON_KEYS = Object.keys(ICONS);
+function icon(k){ return ICONS[k] || ICONS.building; }
+
+/* =====================================================================
+   DEFAULT DATA — Qo'qon Universiteti tuzilmasi (real bo'limlar)
+   A'zolar joy tutuvchi (placeholder) — ism/rasm/bio'ni admin qo'shadi.
+   ===================================================================== */
+function uid(){ return 'x'+Math.random().toString(36).slice(2,9)+Date.now().toString(36).slice(-3); }
+
+var DEFAULT_DATA = {"logo":"","bgVideo":"","depts":[{"id":"x69lue","name":{"uz":"Rahbariyat","en":"Leadership","ru":"Руководство"},"icon":"crown","desc":{"uz":"Rektor, prorektorlar va rektorat.","en":"Rector, vice-rectors and the rectorate.","ru":"Ректор, проректоры и ректорат."},"children":[],"members":[{"id":"x09lud","name":{"uz":"Rektor","en":"Rector","ru":"Ректор"},"role":{"uz":"Universitet rahbari","en":"Head of the University","ru":"Глава университета"},"photo":"","bio":"","phone":"","email":"","telegram":"","posts":[]},{"id":"x19lue","name":{"uz":"Birinchi prorektor","en":"First Vice-Rector","ru":"Первый проректор"},"role":{"uz":"Yoshlar va xalqaro hamkorlik","en":"Youth & international cooperation","ru":"Молодёжь и международное сотрудничество"},"photo":"","bio":"","phone":"","email":"","telegram":"","posts":[]},{"id":"x29lue","name":{"uz":"O'quv ishlari bo'yicha prorektor","en":"Vice-Rector for Academic Affairs","ru":"Проректор по учебной работе"},"role":{"uz":"Ta'lim jarayoni","en":"Academic process","ru":"Учебный процесс"},"photo":"","bio":"","phone":"","email":"","telegram":"","posts":[]},{"id":"x39lue","name":{"uz":"Ilmiy ishlar va innovatsiyalar prorektori","en":"Vice-Rector for Research & Innovation","ru":"Проректор по науке и инновациям"},"role":{"uz":"Ilm-fan","en":"Science","ru":"Наука"},"photo":"","bio":"","phone":"","email":"","telegram":"","posts":[]},{"id":"x49lue","name":{"uz":"Moliyaviy-tashkiliy ishlar prorektori","en":"Vice-Rector for Finance & Administration","ru":"Проректор по финансово-организационным вопросам"},"role":{"uz":"Moliya va tashkilot","en":"Finance & administration","ru":"Финансы и организация"},"photo":"","bio":"","phone":"","email":"","telegram":"","posts":[]},{"id":"x59lue","name":{"uz":"Matbuot kotibi","en":"Press Secretary","ru":"Пресс-секретарь"},"role":{"uz":"Rektor kotibiyati","en":"Rector's secretariat","ru":"Секретариат ректора"},"photo":"","bio":"","phone":"","email":"","telegram":"","posts":[]}]},{"id":"xn9lue","name":{"uz":"Departamentlar","en":"Departments","ru":"Департаменты"},"icon":"building","desc":{"uz":"Boshqaruv va xizmat departamentlari. Har biriga kiring.","en":"Administrative and service departments. Open each one.","ru":"Управленческие и служебные департаменты. Откройте каждый."},"children":[{"id":"x89lue","name":{"uz":"Operatsiyalarni boshqarish departamenti","en":"Operations Management Department","ru":"Департамент управления операциями"},"icon":"compass","desc":{"uz":"","en":"","ru":""},"children":[],"members":[{"id":"x79lue","name":{"uz":"Departament rahbari","en":"Department Head","ru":"Руководитель департамента"},"role":{"uz":"Boshqaruv","en":"Management","ru":"Управление"},"photo":"","bio":"","phone":"","email":"","telegram":"","posts":[]}]},{"id":"xa9lue","name":{"uz":"Moliya va buxgalteriya departamenti","en":"Finance & Accounting Department","ru":"Финансово-бухгалтерский департамент"},"icon":"chart","desc":{"uz":"","en":"","ru":""},"children":[],"members":[{"id":"x99lue","name":{"uz":"Bosh buxgalter","en":"Chief Accountant","ru":"Главный бухгалтер"},"role":{"uz":"Moliya","en":"Finance","ru":"Финансы"},"photo":"","bio":"","phone":"","email":"","telegram":"","posts":[]}]},{"id":"xc9lue","name":{"uz":"Xalqaro aloqalar departamenti","en":"International Relations Department","ru":"Департамент международных связей"},"icon":"globe","desc":{"uz":"","en":"","ru":""},"children":[],"members":[{"id":"xb9lue","name":{"uz":"Departament rahbari","en":"Department Head","ru":"Руководитель департамента"},"role":{"uz":"Xalqaro aloqalar","en":"International relations","ru":"Международные связи"},"photo":"","bio":"","phone":"","email":"","telegram":"","posts":[]}]},{"id":"xe9lue","name":{"uz":"Kadrlar (HR) departamenti","en":"HR Department","ru":"Департамент кадров (HR)"},"icon":"users","desc":{"uz":"","en":"","ru":""},"children":[],"members":[{"id":"xd9lue","name":{"uz":"Departament rahbari","en":"Department Head","ru":"Руководитель департамента"},"role":{"uz":"Kadrlar","en":"Human resources","ru":"Кадры"},"photo":"","bio":"","phone":"","email":"","telegram":"","posts":[]}]},{"id":"xg9lue","name":{"uz":"Marketing va aloqa departamenti","en":"Marketing & Communications Department","ru":"Департамент маркетинга и коммуникаций"},"icon":"briefcase","desc":{"uz":"","en":"","ru":""},"children":[],"members":[{"id":"xf9lue","name":{"uz":"Departament rahbari","en":"Department Head","ru":"Руководитель департамента"},"role":{"uz":"Marketing","en":"Marketing","ru":"Маркетинг"},"photo":"","bio":"","phone":"","email":"","telegram":"","posts":[]}]},{"id":"xi9lue","name":{"uz":"Axborot texnologiyalari departamenti","en":"IT Department","ru":"Департамент информационных технологий"},"icon":"cpu","desc":{"uz":"","en":"","ru":""},"children":[],"members":[{"id":"xh9lue","name":{"uz":"Departament rahbari","en":"Department Head","ru":"Руководитель департамента"},"role":{"uz":"AT xizmati","en":"IT service","ru":"ИТ-служба"},"photo":"","bio":"","phone":"","email":"","telegram":"","posts":[]}]},{"id":"xk9lue","name":{"uz":"Registrator ofisi","en":"Registrar's Office","ru":"Офис регистратора"},"icon":"book","desc":{"uz":"","en":"","ru":""},"children":[],"members":[{"id":"xj9lue","name":{"uz":"Ofis boshlig'i","en":"Office Head","ru":"Начальник офиса"},"role":{"uz":"Registrator","en":"Registrar","ru":"Регистратор"},"photo":"","bio":"","phone":"","email":"","telegram":"","posts":[]}]},{"id":"xm9lue","name":{"uz":"Talabalar bilan ishlash departamenti","en":"Student Affairs Department","ru":"Департамент по работе со студентами"},"icon":"users","desc":{"uz":"","en":"","ru":""},"children":[],"members":[{"id":"xl9lue","name":{"uz":"Departament rahbari","en":"Department Head","ru":"Руководитель департамента"},"role":{"uz":"Talabalar","en":"Students","ru":"Студенты"},"photo":"","bio":"","phone":"","email":"","telegram":"","posts":[]}]}],"members":[]},{"id":"x129lue","name":{"uz":"Fakultetlar","en":"Faculties","ru":"Факультеты"},"icon":"cap","desc":{"uz":"Fakultetlar, dekanatlar va ularning kafedralari.","en":"Faculties, deaneries and their departments.","ru":"Факультеты, деканаты и их кафедры."},"children":[{"id":"xt9lue","name":{"uz":"Turizm va iqtisodiyot fakulteti","en":"Faculty of Tourism and Economics","ru":"Факультет туризма и экономики"},"icon":"cap","desc":{"uz":"Kafedralar fakultet ichida joylashgan.","en":"Its departments are nested inside.","ru":"Кафедры находятся внутри факультета."},"children":[{"id":"xp9lue","name":{"uz":"Iqtisodiyot kafedrasi","en":"Department of Economics","ru":"Кафедра экономики"},"icon":"chart","desc":{"uz":"","en":"","ru":""},"children":[],"members":[{"id":"xo9lue","name":{"uz":"Kafedra mudiri","en":"Head of Department","ru":"Заведующий кафедрой"},"role":{"uz":"Iqtisodiyot","en":"Economics","ru":"Экономика"},"photo":"","bio":"","phone":"","email":"","telegram":"","posts":[]}]},{"id":"xr9lue","name":{"uz":"Turizm kafedrasi","en":"Department of Tourism","ru":"Кафедра туризма"},"icon":"compass","desc":{"uz":"","en":"","ru":""},"children":[],"members":[{"id":"xq9lue","name":{"uz":"Kafedra mudiri","en":"Head of Department","ru":"Заведующий кафедрой"},"role":{"uz":"Turizm","en":"Tourism","ru":"Туризм"},"photo":"","bio":"","phone":"","email":"","telegram":"","posts":[]}]}],"members":[{"id":"xs9lue","name":{"uz":"Dekan","en":"Dean","ru":"Декан"},"role":{"uz":"Fakultet rahbari","en":"Faculty head","ru":"Руководитель факультета"},"photo":"","bio":"","phone":"","email":"","telegram":"","posts":[]}]},{"id":"x119lue","name":{"uz":"Ta'lim fakulteti","en":"Faculty of Education","ru":"Факультет образования"},"icon":"cap","desc":{"uz":"Kafedralar fakultet ichida joylashgan.","en":"Its departments are nested inside.","ru":"Кафедры находятся внутри факультета."},"children":[{"id":"xv9lue","name":{"uz":"Ta'lim kafedrasi","en":"Department of Education","ru":"Кафедра образования"},"icon":"book","desc":{"uz":"","en":"","ru":""},"children":[],"members":[{"id":"xu9lue","name":{"uz":"Kafedra mudiri","en":"Head of Department","ru":"Заведующий кафедрой"},"role":{"uz":"Ta'lim","en":"Education","ru":"Образование"},"photo":"","bio":"","phone":"","email":"","telegram":"","posts":[]}]},{"id":"xx9lue","name":{"uz":"Jahon tillari kafedrasi","en":"Department of World Languages","ru":"Кафедра мировых языков"},"icon":"globe","desc":{"uz":"","en":"","ru":""},"children":[],"members":[{"id":"xw9lue","name":{"uz":"Kafedra mudiri","en":"Head of Department","ru":"Заведующий кафедрой"},"role":{"uz":"Jahon tillari","en":"World languages","ru":"Мировые языки"},"photo":"","bio":"","phone":"","email":"","telegram":"","posts":[]}]},{"id":"xz9lue","name":{"uz":"Raqamli texnologiyalar kafedrasi","en":"Department of Digital Technologies","ru":"Кафедра цифровых технологий"},"icon":"cpu","desc":{"uz":"","en":"","ru":""},"children":[],"members":[{"id":"xy9lue","name":{"uz":"Kafedra mudiri","en":"Head of Department","ru":"Заведующий кафедрой"},"role":{"uz":"Raqamli texnologiyalar","en":"Digital technologies","ru":"Цифровые технологии"},"photo":"","bio":"","phone":"","email":"","telegram":"","posts":[]}]}],"members":[{"id":"x109lue","name":{"uz":"Dekan","en":"Dean","ru":"Декан"},"role":{"uz":"Fakultet rahbari","en":"Faculty head","ru":"Руководитель факультета"},"photo":"","bio":"","phone":"","email":"","telegram":"","posts":[]}]}],"members":[]},{"id":"x169lue","name":{"uz":"Markazlar","en":"Centers","ru":"Центры"},"icon":"atom","desc":{"uz":"Ilmiy, innovatsion va resurs markazlari.","en":"Research, innovation and resource centers.","ru":"Научные, инновационные и ресурсные центры."},"children":[],"members":[{"id":"x139lue","name":{"uz":"Innovatsion ta'lim texnologiyalari markazi","en":"Center for Innovative Educational Technologies","ru":"Центр инновационных образовательных технологий"},"role":{"uz":"Markaz rahbari","en":"Center Head","ru":"Руководитель центра"},"photo":"","bio":"","phone":"","email":"","telegram":"","posts":[]},{"id":"x149lue","name":{"uz":"Axborot-resurs markazi","en":"Information Resource Center","ru":"Информационно-ресурсный центр"},"role":{"uz":"Markaz rahbari","en":"Center Head","ru":"Руководитель центра"},"photo":"","bio":"","phone":"","email":"","telegram":"","posts":[]},{"id":"x159lue","name":{"uz":"Axborot texnologiyalari markazi","en":"IT Center","ru":"Центр информационных технологий"},"role":{"uz":"Markaz rahbari","en":"Center Head","ru":"Руководитель центра"},"photo":"","bio":"","phone":"","email":"","telegram":"","posts":[]}]},{"id":"x1b9lue","name":{"uz":"Kengashlar","en":"Councils","ru":"Советы"},"icon":"scale","desc":{"uz":"Kollegial boshqaruv organlari.","en":"Collegial governing bodies.","ru":"Коллегиальные органы управления."},"children":[],"members":[{"id":"x179lue","name":{"uz":"Vasiylik Kengashi","en":"Board of Trustees","ru":"Попечительский совет"},"role":{"uz":"Oliy organ","en":"Supreme body","ru":"Высший орган"},"photo":"","bio":"","phone":"","email":"","telegram":"","posts":[]},{"id":"x189lue","name":{"uz":"Universitet Kengashi","en":"University Council","ru":"Совет университета"},"role":{"uz":"Kollegial organ","en":"Collegial body","ru":"Коллегиальный орган"},"photo":"","bio":"","phone":"","email":"","telegram":"","posts":[]},{"id":"x199lue","name":{"uz":"Ilmiy Kengash","en":"Academic Council","ru":"Учёный совет"},"role":{"uz":"Ilmiy siyosat","en":"Academic policy","ru":"Научная политика"},"photo":"","bio":"","phone":"","email":"","telegram":"","posts":[]},{"id":"x1a9lue","name":{"uz":"Xotin-qizlar kengashi","en":"Women's Council","ru":"Совет женщин"},"role":{"uz":"Jamoatchilik","en":"Community","ru":"Общественность"},"photo":"","bio":"","phone":"","email":"","telegram":"","posts":[]}]}]};
+
+/* =====================================================================
+   STATE + STORAGE
+   ===================================================================== */
+var DATA = null;
+var state = { path:[] };
+var openMemberRef = { deptId:null, memId:null };
+var formIcon = "building";
+var formPosts = [];
+
+function normalize(list){ (list||[]).forEach(function(d){ if(!d.children) d.children=[]; if(!d.members) d.members=[]; normalize(d.children); }); }
+
+/* ---- BACKEND API ulanishi ---- */
+var API = { data:'/api/data', login:'/api/login', verify:'/api/verify', reset:'/api/reset' };
+function getToken(){ try{ return localStorage.getItem('ku_token')||''; }catch(e){ return ''; } }
+function setToken(t){ try{ localStorage.setItem('ku_token', t); }catch(e){} }
+function clearToken(){ try{ localStorage.removeItem('ku_token'); }catch(e){} }
+
+function load(){
+  return fetch(API.data, { cache:'no-store' })
+    .then(function(r){ if(!r.ok) throw 0; return r.json(); })
+    .then(function(d){
+      DATA = (d && d.depts) ? d : JSON.parse(JSON.stringify(DEFAULT_DATA));
+      if(!DATA.depts) DATA.depts = [];
+      normalize(DATA.depts);
+    })
+    .catch(function(){
+      DATA = JSON.parse(JSON.stringify(DEFAULT_DATA));
+      normalize(DATA.depts);
+      toast(t('t_load_fail'));
+    });
+}
+function save(){
+  if(!getToken()){ return; }                  /* faqat admin serverga yozadi */
+  setSaving(true);
+  fetch(API.data, {
+    method:'PUT',
+    headers:{ 'Content-Type':'application/json', 'Authorization':'Bearer '+getToken() },
+    body: JSON.stringify({ logo:DATA.logo||'', bgVideo:DATA.bgVideo||'', depts:DATA.depts })
+  }).then(function(r){
+    setSaving(false);
+    if(r.status===401){ onAuthLost(); return; }
+    if(r.status===413){ toast(t('t_save_too_large')); return; }
+    if(!r.ok){ toast(t('t_save_fail_server')); }
+  }).catch(function(){ setSaving(false); toast(t('t_save_fail_net')); });
+}
+function setSaving(v){ var el=document.getElementById('saveDot'); if(el) el.style.opacity=v?'1':'0'; }
+function onAuthLost(){
+  clearToken(); document.body.classList.remove('admin');
+  render(); toast(t('t_session_end')); secretAdmin();
+}
+
+/* =====================================================================
+   HELPERS
+   ===================================================================== */
+function esc(s){ return (s==null?"":String(s)).replace(/[&<>"']/g,function(c){
+  return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+function attr(s){ return esc(s); }
+function initials(str){
+  if(typeof str!=='string') str = str==null ? "" : (typeof str==='object' ? tx(str) : String(str));
+  str=str.trim(); if(!str) return "•";
+  var p=str.split(/\s+/);
+  return (p.length>1 ? (p[0][0]+p[1][0]) : str.slice(0,2)).toUpperCase();
+}
+function hashHue(str){ if(typeof str!=='string') str = (typeof str==='object' ? tx(str) : String(str||"x")); var h=0; str=str||"x"; for(var i=0;i<str.length;i++) h=str.charCodeAt(i)+((h<<5)-h); return Math.abs(h)%360; }
+function avatarURI(seed){
+  var hue=hashHue(seed), hue2=(hue+42)%360, t=esc(initials(seed));
+  var svg='<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">'+
+    '<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">'+
+    '<stop offset="0" stop-color="hsl('+hue+',70%,55%)"/>'+
+    '<stop offset="1" stop-color="hsl('+hue2+',72%,42%)"/></linearGradient></defs>'+
+    '<rect width="200" height="200" fill="url(#g)"/>'+
+    '<text x="100" y="100" font-family="Sora,Arial,sans-serif" font-size="76" font-weight="700" '+
+    'fill="rgba(255,255,255,.92)" text-anchor="middle" dominant-baseline="central">'+t+'</text></svg>';
+  return 'data:image/svg+xml;utf8,'+encodeURIComponent(svg);
+}
+function photoOf(mem){ return mem.photo ? mem.photo : avatarURI(tx(mem.name)||tx(mem.role)||"?"); }
+function findDept(id, list){
+  list=list||DATA.depts;
+  for(var i=0;i<list.length;i++){
+    if(list[i].id===id) return list[i];
+    var r=findDept(id, list[i].children||[]); if(r) return r;
+  }
+  return null;
+}
+function findParentList(id, list){
+  list=list||DATA.depts;
+  for(var i=0;i<list.length;i++){
+    if(list[i].id===id) return list;
+    var r=findParentList(id, list[i].children||[]); if(r) return r;
+  }
+  return null;
+}
+function findMember(dept,mid){ if(!dept||!dept.members) return null; for(var i=0;i<dept.members.length;i++) if(dept.members[i].id===mid) return dept.members[i]; return null; }
+function countNodes(list){ var n=0; (list||[]).forEach(function(d){ n++; n+=countNodes(d.children); }); return n; }
+function countMembers(list){ var n=0; (list||[]).forEach(function(d){ n+=(d.members||[]).length; n+=countMembers(d.children); }); return n; }
+/* navigate the tree by a path of ids -> {node, children, members, trail} */
+function getNodeAt(path){
+  var children=DATA.depts, node=null, trail=[];
+  for(var i=0;i<path.length;i++){
+    var found=null;
+    for(var j=0;j<children.length;j++){ if(children[j].id===path[i]){ found=children[j]; break; } }
+    if(!found) return null;
+    node=found; trail.push({id:node.id,name:node.name}); children=node.children||[];
+  }
+  return { node:node, children:children, members: node?(node.members||[]):[], trail:trail };
+}
+function currentNodeId(){ return state.path.length ? state.path[state.path.length-1] : null; }
+function currentChildren(){
+  if(!state.path.length) return DATA.depts;
+  var n=findDept(currentNodeId()); if(!n) return DATA.depts;
+  if(!n.children) n.children=[];
+  return n.children;
+}
+
+/* small svg helpers */
+function svgPencil(){ return '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>'; }
+function svgTrash(){ return '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M6 6l1 14a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-14"/></svg>'; }
+function svgGo(){ return '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'; }
+function svgBack(){ return '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>'; }
+function svgUp(){ return '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>'; }
+function svgDown(){ return '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>'; }
+function iPhone(){ return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.2a2 2 0 0 1 2.1-.4c.8.3 1.7.6 2.6.7a2 2 0 0 1 1.7 2z"/></svg>'; }
+function iMail(){ return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>'; }
+function iTg(){ return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M21 4 3 11l6 2 2 6 3-4 5 4z"/></svg>'; }
+
+/* =====================================================================
+   RENDER
+   ===================================================================== */
+function render(){
+  var app=document.getElementById('app');
+  var ctx=getNodeAt(state.path);
+  if(!ctx){ state.path=[]; ctx=getNodeAt([]); }
+  app.innerHTML = ctx.node ? renderNode(ctx) : renderHome();
+  bindCardGlow();
+  revealScan();
+  window.scrollTo({top:0,behavior:'auto'});
+}
+
+function renderHome(){
+  var html='<header class="hero">'+
+    '<img class="logo-lockup" src="'+attr(currentLogo())+'" alt="Kokand University">'+
+    '<div class="eyebrow">'+esc(t('eyebrow'))+'</div>'+
+    '<h1>'+esc(t('hero_1'))+' <span class="grad">'+esc(t('hero_2'))+'</span></h1>'+
+    '<p>'+esc(t('hero_sub'))+'</p>'+
+    '<div class="stats">'+
+      stat(countNodes(DATA.depts),t('stat_depts'))+
+      stat(countMembers(DATA.depts),t('stat_members'))+
+      stat("2026",t('stat_year'))+
+    '</div></header>';
+
+  html+='<div class="wrap"><div class="grid depts">';
+  DATA.depts.forEach(function(d){ html+=deptCard(d); });
+  html+='<div class="add-card" role="button" tabindex="0" onclick="openDeptForm(null)" onkeydown="cardKey(event,function(){openDeptForm(null)})"><div class="plus">+</div>'+esc(t('add_dept'))+'</div>';
+  html+='</div></div>';
+  return html;
+}
+
+function deptCard(d){
+  var ch=(d.children||[]).length, mem=(d.members||[]).length, meta='';
+  if(ch) meta+='<b>'+ch+'</b> '+esc(t('count_dept'));
+  if(ch&&mem) meta+=' · ';
+  if(mem) meta+='<b>'+mem+'</b> '+esc(t('count_member'));
+  if(!ch&&!mem) meta=esc(t('open'));
+  var tools='<div class="card-tools">'+
+    '<button type="button" class="tool" onclick="event.stopPropagation();moveDept(\''+d.id+'\',-1)" title="'+attr(t('move_up'))+'" aria-label="'+attr(t('move_up'))+'">'+svgUp()+'</button>'+
+    '<button type="button" class="tool" onclick="event.stopPropagation();moveDept(\''+d.id+'\',1)" title="'+attr(t('move_down'))+'" aria-label="'+attr(t('move_down'))+'">'+svgDown()+'</button>'+
+    '<button type="button" class="tool" onclick="event.stopPropagation();openDeptForm(\''+d.id+'\')" title="'+attr(t('edit'))+'" aria-label="'+attr(t('edit'))+'">'+svgPencil()+'</button>'+
+    '<button type="button" class="tool del" onclick="event.stopPropagation();deleteDept(\''+d.id+'\')" title="'+attr(t('del'))+'" aria-label="'+attr(t('del'))+'">'+svgTrash()+'</button></div>';
+  return '<div class="card dcard" data-glow role="button" tabindex="0" aria-label="'+attr(tx(d.name))+'" onclick="openDept(\''+d.id+'\')" onkeydown="cardKey(event,function(){openDept(\''+d.id+'\')})">'+tools+
+    '<div class="ic">'+icon(d.icon)+'</div>'+
+    '<h3>'+esc(tx(d.name))+'</h3>'+
+    '<p>'+esc(tx(d.desc))+'</p>'+
+    '<div class="foot"><span class="count">'+meta+'</span>'+
+    '<span class="go">'+svgGo()+'</span></div></div>';
+}
+
+function breadcrumb(trail){
+  var html='<div class="crumb"><button class="crumb-link" onclick="goToPath(0)">'+svgBack()+' '+esc(t('all_depts'))+'</button>';
+  trail.forEach(function(c,i){
+    html+='<span class="crumb-sep">›</span>';
+    if(i===trail.length-1){ html+='<span class="crumb-cur">'+esc(tx(c.name))+'</span>'; }
+    else { html+='<button class="crumb-link" onclick="goToPath('+(i+1)+')">'+esc(tx(c.name))+'</button>'; }
+  });
+  return html+'</div>';
+}
+
+function renderNode(ctx){
+  var d=ctx.node, admin=document.body.classList.contains('admin');
+  var html='<div class="wrap">';
+  html+=breadcrumb(ctx.trail);
+  html+='<div class="dept-head"><div class="ic">'+icon(d.icon)+'</div>'+
+    '<div><h2>'+esc(tx(d.name))+'</h2>'+(tx(d.desc)?'<p>'+esc(tx(d.desc))+'</p>':'')+'</div></div>';
+
+  var hasCh=ctx.children.length>0, hasMem=ctx.members.length>0;
+  if(hasCh || admin){
+    html+='<div class="p-section-title" style="margin:6px 0 16px">'+esc(t('sub_depts'))+'</div>';
+    html+='<div class="grid depts">';
+    ctx.children.forEach(function(c){ html+=deptCard(c); });
+    html+='<div class="add-card" role="button" tabindex="0" onclick="openDeptForm(null)" onkeydown="cardKey(event,function(){openDeptForm(null)})"><div class="plus">+</div>'+esc(t('add_subdept'))+'</div>';
+    html+='</div>';
+  }
+  if(hasMem || admin){
+    html+='<div class="p-section-title" style="margin:'+(hasCh||admin?'36px':'6px')+' 0 16px">'+esc(t('members'))+'</div>';
+    html+='<div class="grid members">';
+    ctx.members.forEach(function(mem,i){ html+= (i===0 ? leadCard(d,mem) : memberCard(d,mem)); });
+    html+='<div class="add-card" role="button" tabindex="0" onclick="openMemberForm(\''+d.id+'\',null)" onkeydown="cardKey(event,function(){openMemberForm(\''+d.id+'\',null)})"><div class="plus">+</div>'+esc(t('add_member'))+'</div>';
+    html+='</div>';
+  }
+  if(!hasCh && !hasMem && !admin){
+    html+='<div class="empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg><p>'+esc(t('empty_node'))+'</p></div>';
+  }
+  html+='</div>';
+  return html;
+}
+
+function memberCard(d,mem){
+  var tags='';
+  if(mem.phone) tags+='<span class="tg">'+iPhone()+'</span>';
+  if(mem.email) tags+='<span class="tg">'+iMail()+'</span>';
+  if(mem.telegram) tags+='<span class="tg">'+iTg()+'</span>';
+  var tools='<div class="card-tools">'+
+    '<button type="button" class="tool" onclick="event.stopPropagation();moveMember(\''+d.id+'\',\''+mem.id+'\',-1)" title="'+attr(t('move_up'))+'" aria-label="'+attr(t('move_up'))+'">'+svgUp()+'</button>'+
+    '<button type="button" class="tool" onclick="event.stopPropagation();moveMember(\''+d.id+'\',\''+mem.id+'\',1)" title="'+attr(t('move_down'))+'" aria-label="'+attr(t('move_down'))+'">'+svgDown()+'</button>'+
+    '<button type="button" class="tool" onclick="event.stopPropagation();openMemberForm(\''+d.id+'\',\''+mem.id+'\')" title="'+attr(t('edit'))+'" aria-label="'+attr(t('edit'))+'">'+svgPencil()+'</button>'+
+    '<button type="button" class="tool del" onclick="event.stopPropagation();deleteMember(\''+d.id+'\',\''+mem.id+'\')" title="'+attr(t('del'))+'" aria-label="'+attr(t('del'))+'">'+svgTrash()+'</button></div>';
+  return '<div class="card mcard" data-glow role="button" tabindex="0" aria-label="'+attr(tx(mem.name)||tx(mem.role))+'" onclick="openMember(\''+d.id+'\',\''+mem.id+'\')" onkeydown="cardKey(event,function(){openMember(\''+d.id+'\',\''+mem.id+'\')})">'+tools+
+    '<img class="ava" src="'+attr(photoOf(mem))+'" alt="'+attr(tx(mem.name))+'">'+
+    '<h3>'+esc(tx(mem.name)||t('unnamed'))+'</h3>'+
+    '<div class="role">'+esc(tx(mem.role))+'</div>'+
+    (tags?'<div class="tags">'+tags+'</div>':'')+'</div>';
+}
+
+function stat(n,l){ return '<div class="stat"><b>'+esc(n)+'</b><span>'+esc(l)+'</span></div>'; }
+
+function leadCard(d,mem){
+  var tags='';
+  if(mem.phone) tags+='<span class="tg">'+iPhone()+'</span>';
+  if(mem.email) tags+='<span class="tg">'+iMail()+'</span>';
+  if(mem.telegram) tags+='<span class="tg">'+iTg()+'</span>';
+  var tools='<div class="card-tools">'+
+    '<button type="button" class="tool" onclick="event.stopPropagation();moveMember(\''+d.id+'\',\''+mem.id+'\',-1)" title="'+attr(t('move_up'))+'" aria-label="'+attr(t('move_up'))+'">'+svgUp()+'</button>'+
+    '<button type="button" class="tool" onclick="event.stopPropagation();moveMember(\''+d.id+'\',\''+mem.id+'\',1)" title="'+attr(t('move_down'))+'" aria-label="'+attr(t('move_down'))+'">'+svgDown()+'</button>'+
+    '<button type="button" class="tool" onclick="event.stopPropagation();openMemberForm(\''+d.id+'\',\''+mem.id+'\')" title="'+attr(t('edit'))+'" aria-label="'+attr(t('edit'))+'">'+svgPencil()+'</button>'+
+    '<button type="button" class="tool del" onclick="event.stopPropagation();deleteMember(\''+d.id+'\',\''+mem.id+'\')" title="'+attr(t('del'))+'" aria-label="'+attr(t('del'))+'">'+svgTrash()+'</button></div>';
+  var star='<svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5 20.4l1.4-6.8L1.3 9l6.9-.7L12 2z"/></svg>';
+  return '<div class="card lead-card" data-glow role="button" tabindex="0" aria-label="'+attr(tx(mem.name)||tx(mem.role))+'" onclick="openMember(\''+d.id+'\',\''+mem.id+'\')" onkeydown="cardKey(event,function(){openMember(\''+d.id+'\',\''+mem.id+'\')})">'+tools+
+    '<img class="ava" src="'+attr(photoOf(mem))+'" alt="'+attr(tx(mem.name))+'">'+
+    '<div class="who">'+
+      '<div class="badge">'+star+esc(t('lead_badge'))+'</div>'+
+      '<h3>'+esc(tx(mem.name)||t('unnamed'))+'</h3>'+
+      '<div class="role">'+esc(tx(mem.role))+'</div>'+
+      (tags?'<div class="tags">'+tags+'</div>':'')+
+    '</div></div>';
+}
+
+/* cursor-following blue glow on cards */
+function bindCardGlow(){
+  var cards=document.querySelectorAll('.card[data-glow]');
+  cards.forEach(function(c){
+    c.addEventListener('pointermove',function(e){
+      var r=c.getBoundingClientRect();
+      c.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
+      c.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
+    });
+  });
+}
+
+/* scroll-reveal: elementlar ko'rinishga kirganda turli tomondan paydo bo'ladi */
+var _revObserver=null;
+function revealScan(){
+  if(!('IntersectionObserver' in window)) return;   /* eski brauzer -> to'g'ridan ko'rinadi */
+  if(!_revObserver){
+    _revObserver=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); _revObserver.unobserve(en.target); }
+      });
+    },{ threshold:0.06, rootMargin:'0px 0px -8% 0px' });
+  }
+  function prep(el,dir,delay){
+    if(!el || el.classList.contains('reveal')) return;
+    el.classList.add('reveal',dir);
+    if(delay) el.style.transitionDelay=(delay/1000).toFixed(2)+'s';
+    _revObserver.observe(el);
+  }
+  /* hero bloklari (yuqoridan pastga ketma-ket) */
+  var hk=document.querySelectorAll('#app .hero > *');
+  for(var i=0;i<hk.length;i++){ prep(hk[i],'r-up', i*90); }
+  /* sarlavhalar / breadcrumb / bo'sh holat (chapdan) */
+  document.querySelectorAll('#app .p-section-title, #app .dept-head, #app .crumb, #app .empty').forEach(function(el){ prep(el,'r-left',0); });
+  /* kartalar — aralash yo'nalish + bosqichli kechikish */
+  var dirs=['r-up','r-left','r-right','r-scale','r-rot','r-blur'];
+  document.querySelectorAll('#app .grid').forEach(function(grid){
+    var kids=grid.children, k=0;
+    for(var j=0;j<kids.length;j++){
+      var el=kids[j];
+      if(el.classList.contains('lead-card')) prep(el,'r-scale',0);
+      else if(el.classList.contains('add-card')) prep(el,'r-up',80);
+      else { prep(el, dirs[k%dirs.length], Math.min(k,7)*70); k++; }
+    }
+  });
+}
+
+/* =====================================================================
+   NAVIGATION
+   ===================================================================== */
+function goHome(){ state.path=[]; render(); }
+function openDept(id){ state.path=state.path.concat([id]); render(); }
+function goToPath(len){ state.path=state.path.slice(0,len); render(); }
+/* klaviatura bilan ochish: Enter yoki Bo'sh tugma (role="button" kartalar uchun) */
+function cardKey(e, fn){ if(e.key==='Enter'||e.key===' '||e.key==='Spacebar'){ e.preventDefault(); fn(); } }
+
+/* =====================================================================
+   MEMBER FULL-SCREEN PROFILE
+   ===================================================================== */
+function openMember(deptId, memId){
+  var d=findDept(deptId), mem=findMember(d,memId);
+  if(!mem) return;
+  openMemberRef={deptId:deptId,memId:memId};
+  var roleHtml = esc(tx(mem.role));
+  var contacts='';
+  if(mem.phone) contacts+='<a href="tel:'+attr(mem.phone.replace(/\s/g,''))+'">'+iPhone()+esc(mem.phone)+'</a>';
+  if(mem.email) contacts+='<a href="mailto:'+attr(mem.email)+'">'+iMail()+esc(mem.email)+'</a>';
+  if(mem.telegram) contacts+='<a href="'+attr(tgUrl(mem.telegram))+'" target="_blank" rel="noopener">'+iTg()+esc(mem.telegram.replace(/^https?:\/\/(t\.me\/)?/,'@').replace('@@','@'))+'</a>';
+
+  var bioHtml = tx(mem.bio) ? '<div class="p-bio">'+esc(tx(mem.bio))+'</div>'
+                        : '<div class="p-bio empty-note">'+esc(t('no_info'))+'</div>';
+
+  var postsHtml='';
+  if(mem.posts && mem.posts.length){
+    postsHtml='<div class="p-section-title">'+esc(t('profile_posts'))+'</div><div class="posts">';
+    mem.posts.forEach(function(p,idx){
+      postsHtml+='<div class="post" onclick="openLightbox(\''+deptId+'\',\''+memId+'\','+idx+')">'+
+        '<img src="'+attr(p.img)+'" alt="">'+
+        (p.caption?'<div class="cap">'+esc(p.caption)+'</div>':'')+'</div>';
+    });
+    postsHtml+='</div>';
+  }
+
+  var editBtn = document.body.classList.contains('admin')
+    ? '<a onclick="closeMember();openMemberForm(\''+deptId+'\',\''+memId+'\')" style="cursor:pointer">'+
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>'+esc(t('edit'))+'</a>'
+    : '';
+
+  document.getElementById('profileContent').innerHTML=
+    '<div class="p-hero"><div class="row">'+
+      '<img class="big-ava" src="'+attr(photoOf(mem))+'" alt="'+attr(tx(mem.name))+'">'+
+      '<div class="who">'+
+        '<div class="dept-chip">'+icon(d.icon)+esc(tx(d.name))+'</div>'+
+        '<h2>'+esc(tx(mem.name)||t('unnamed'))+'</h2>'+
+        '<div class="role">'+roleHtml+'</div>'+
+        (contacts||editBtn ? '<div class="p-contacts">'+contacts+editBtn+'</div>':'')+
+      '</div>'+
+    '</div></div>'+
+    '<div class="p-body">'+
+      '<div class="p-section-title">'+esc(t('profile_info'))+'</div>'+ bioHtml + postsHtml +
+    '</div>';
+  openOverlay('memberOverlay');
+}
+function closeMember(){ closeOverlay('memberOverlay'); }
+function tgUrl(t){ t=(t||"").trim(); if(/^https?:/.test(t)) return t; return "https://t.me/"+t.replace(/^@/,''); }
+
+/* lightbox */
+function openLightbox(deptId,memId,idx){
+  var d=findDept(deptId), mem=findMember(d,memId);
+  if(!mem||!mem.posts[idx]) return;
+  document.getElementById('lbImg').src=mem.posts[idx].img;
+  document.getElementById('lbCap').textContent=mem.posts[idx].caption||"";
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox(){ document.getElementById('lightbox').classList.remove('open'); }
+
+/* =====================================================================
+   OVERLAY helpers
+   ===================================================================== */
+function openOverlay(id){ document.getElementById(id).classList.add('open'); document.body.style.overflow='hidden'; }
+function closeOverlay(id){ document.getElementById(id).classList.remove('open'); if(!anyOverlayOpen()) document.body.style.overflow=''; }
+function anyOverlayOpen(){
+  return ['memberOverlay','formOverlay','loginOverlay'].some(function(i){ return document.getElementById(i).classList.contains('open'); });
+}
+function closeForm(){ closeOverlay('formOverlay'); }
+
+/* =====================================================================
+   ADMIN AUTH
+   ===================================================================== */
+/* --- yashirin admin kirish: logo 5 marta bosilsa / #admin havola / Ctrl+Shift+A --- */
+var _tap=0,_tapTimer;
+function brandTap(){
+  goHome();
+  _tap++; clearTimeout(_tapTimer);
+  _tapTimer=setTimeout(function(){ _tap=0; },1500);
+  if(_tap>=5){ _tap=0; secretAdmin(); }
+}
+function secretAdmin(){
+  if(document.body.classList.contains('admin')){ toast(t('t_already_admin')); return; }
+  openOverlay('loginOverlay');
+  setTimeout(function(){ var el=document.getElementById('loginPass'); if(el){ el.value=''; el.focus(); } },50);
+}
+function checkHash(){
+  var h=(location.hash||'').toLowerCase();
+  if(h==='#admin'||h==='#tahrir'){ secretAdmin(); }
+}
+function adminToggle(){
+  if(document.body.classList.contains('admin')){ logout(); }
+  else{ openOverlay('loginOverlay'); setTimeout(function(){ var el=document.getElementById('loginPass'); if(el){el.value='';el.focus();} },50); }
+}
+function doLogin(){
+  var p=document.getElementById('loginPass').value;
+  var btn=document.querySelector('#loginOverlay .btn-primary'); if(btn){ btn.disabled=true; btn.textContent=t('login_checking'); }
+  fetch(API.login, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({password:p}) })
+    .then(function(r){ return r.json().then(function(j){ return {ok:r.ok, status:r.status, j:j}; }, function(){ return {ok:r.ok, status:r.status, j:{}}; }); })
+    .then(function(res){
+      if(btn){ btn.disabled=false; btn.textContent=t('login_btn'); }
+      if(res.ok && res.j && res.j.token){
+        setToken(res.j.token);
+        document.body.classList.add('admin');
+        closeOverlay('loginOverlay'); render(); toast(t('t_login_ok'));
+        if((location.hash||'').toLowerCase().match(/^#(admin|tahrir)$/)){ try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){ location.hash=''; } }
+      } else if(res.status===429){
+        toast(t('t_too_many'));
+      } else {
+        toast(t('t_wrong_pass'));
+      }
+    })
+    .catch(function(){ if(btn){ btn.disabled=false; btn.textContent=t('login_btn'); } toast(t('t_conn_err')); });
+}
+function logout(){
+  clearToken();
+  document.body.classList.remove('admin');
+  render(); toast(t('t_logout'));
+}
+
+/* =====================================================================
+   QIDIRUV (ism/familiya/lavozim bo'yicha — butun daraxt bo'ylab)
+   ===================================================================== */
+function allText(v){ if(v==null) return ''; if(typeof v==='object'){ var o=''; for(var k in v) o+=' '+(v[k]||''); return o; } return String(v); }
+function collectMembers(){
+  var out=[];
+  (function walk(list, trail){
+    (list||[]).forEach(function(d){
+      var t2=trail.concat([tx(d.name)]);
+      (d.members||[]).forEach(function(mem){
+        out.push({ mem:mem, dept:d, names:t2 });
+      });
+      walk(d.children, t2);
+    });
+  })(DATA.depts, []);
+  return out;
+}
+/* to'g'ri path (id'lar) ni yig'ish uchun daraxtni qayta kezamiz */
+function pathToNode(targetId){
+  var res=null;
+  (function walk(list, acc){
+    (list||[]).forEach(function(d){
+      var a=acc.concat([d.id]);
+      if(d.id===targetId){ res=a; return; }
+      walk(d.children, a);
+    });
+  })(DATA.depts, []);
+  return res||[];
+}
+
+function openSearch(){
+  var inp=document.getElementById('searchInput');
+  inp.value=''; doSearch('');
+  openOverlay('searchOverlay');
+  setTimeout(function(){ inp.focus(); },60);
+}
+function closeSearch(){ closeOverlay('searchOverlay'); }
+function doSearch(q){
+  q=(q||'').trim().toLowerCase();
+  var box=document.getElementById('searchResults');
+  var all=collectMembers(), res;
+  if(!q){ res=all.slice(0,25); }
+  else {
+    res=all.filter(function(r){
+      return allText(r.mem.name).toLowerCase().indexOf(q)>=0
+          || allText(r.mem.role).toLowerCase().indexOf(q)>=0
+          || allText(r.dept.name).toLowerCase().indexOf(q)>=0;
+    }).slice(0,50);
+  }
+  if(res.length===0){ box.innerHTML='<div class="search-empty">'+esc(t('search_none'))+'</div>'; return; }
+  box.innerHTML=res.map(function(r){
+    var src = r.mem.photo ? r.mem.photo : avatarURI(tx(r.mem.name)||tx(r.mem.role)||'?');
+    return '<div class="s-item" onclick="gotoMember(\''+r.dept.id+'\',\''+r.mem.id+'\')">'+
+      '<img class="s-ava" src="'+attr(src)+'" alt="">'+
+      '<div class="s-info">'+
+        '<div class="s-name">'+esc(tx(r.mem.name)||t('unnamed'))+'</div>'+
+        (tx(r.mem.role)?'<div class="s-role">'+esc(tx(r.mem.role))+'</div>':'')+
+        '<div class="s-path">'+esc(r.names.join(' › '))+'</div>'+
+      '</div>'+
+      '<span class="s-badge">'+esc(tx(r.dept.name))+'</span>'+
+    '</div>';
+  }).join('');
+}
+function gotoMember(deptId, memId){
+  closeSearch();
+  state.path = pathToNode(deptId);
+  render();
+  openMember(deptId, memId);
+}
+
+/* =====================================================================
+   DEPT FORM
+   ===================================================================== */
+function openDeptForm(id){
+  var d = id ? findDept(id) : null;
+  formIcon = d ? (d.icon||"building") : "building";
+  var iconsHtml = ICON_KEYS.map(function(k){
+    return '<div class="icon-opt'+(k===formIcon?' sel':'')+'" data-icon="'+k+'" onclick="pickIcon(\''+k+'\')">'+icon(k)+'</div>';
+  }).join('');
+  document.getElementById('formContent').innerHTML=
+    '<h3>'+(d?t('dept_edit'):t('dept_new'))+'</h3>'+
+    '<div class="lang-note">'+langNote()+'</div>'+
+    '<div class="field"><label>'+t('dept_name')+'</label><input id="f_name" value="'+attr(d?tx(d.name):"")+'" placeholder="'+attr(t('dept_name_ph'))+'"></div>'+
+    '<div class="field"><label>'+t('dept_desc')+'</label><input id="f_desc" value="'+attr(d?tx(d.desc):"")+'" placeholder="'+attr(t('dept_desc_ph'))+'"></div>'+
+    '<div class="field"><label>'+t('icon')+'</label><div class="icon-picker">'+iconsHtml+'</div></div>'+
+    '<div class="form-actions"><button class="btn btn-ghost" onclick="closeForm()">'+t('cancel')+'</button>'+
+    '<button class="btn btn-primary" onclick="saveDept(\''+(id||"")+'\')">'+t('save')+'</button></div>';
+  openOverlay('formOverlay');
+}
+function langName(){ return {uz:"O'zbekcha",en:"English",ru:"Русский"}[lang]||lang; }
+function langNote(){ return '🌐 '+esc(t('lang_note_1'))+' <b>'+esc(langName())+'</b> '+esc(t('lang_note_2')); }
+function pickIcon(k){
+  formIcon=k;
+  var opts=document.querySelectorAll('#formContent .icon-opt');
+  opts.forEach(function(o){ o.classList.toggle('sel', o.getAttribute('data-icon')===k); });
+}
+function saveDept(id){
+  var name=document.getElementById('f_name').value.trim();
+  if(!name){ toast(t('t_dept_name_req')); return; }
+  var desc=document.getElementById('f_desc').value.trim();
+  if(id){
+    var d=findDept(id); if(d){ d.name=setTx(d.name,name); d.desc=setTx(d.desc,desc); d.icon=formIcon; }
+  } else {
+    currentChildren().push({ id:uid(), name:setTx(null,name), desc:setTx(null,desc), icon:formIcon, children:[], members:[] });
+  }
+  save(); closeForm(); render(); toast(t('t_saved'));
+}
+function deleteDept(id){
+  var d=findDept(id); if(!d) return;
+  var inner=(d.children&&d.children.length)||(d.members&&d.members.length);
+  if(!confirm('"'+tx(d.name)+'"'+(inner?t('c_del_inner'):'')+t('c_del_q'))) return;
+  var list=findParentList(id);
+  if(list){ for(var i=0;i<list.length;i++){ if(list[i].id===id){ list.splice(i,1); break; } } }
+  var idx=state.path.indexOf(id);
+  if(idx>=0) state.path=state.path.slice(0,idx);
+  save(); render(); toast(t('t_deleted'));
+}
+/* bo'limni o'z ro'yxatida yuqoriga/pastga ko'chirish (dir = -1 yoki +1) */
+function moveDept(id, dir){
+  var list=findParentList(id); if(!list) return;
+  var i=-1; for(var k=0;k<list.length;k++){ if(list[k].id===id){ i=k; break; } }
+  var j=i+dir;
+  if(i<0 || j<0 || j>=list.length) return;
+  var tmp=list[i]; list[i]=list[j]; list[j]=tmp;
+  save(); render();
+}
+
+/* =====================================================================
+   MEMBER FORM (with photo + bio + contacts + posts)
+   ===================================================================== */
+function openMemberForm(deptId, memId){
+  var d=findDept(deptId); if(!d) return;
+  var mem = memId ? findMember(d,memId) : null;
+  formPosts = mem && mem.posts ? JSON.parse(JSON.stringify(mem.posts)) : [];
+  var pv = mem ? photoOf(mem) : avatarURI("?");
+  document.getElementById('formContent').innerHTML=
+    '<h3>'+(mem?t('member_edit'):t('member_new'))+'</h3>'+
+    '<div class="lang-note">'+langNote()+'</div>'+
+    '<div class="field"><label>'+t('photo')+'</label><div class="upload">'+
+      '<img class="upload-prev" id="mPrev" src="'+attr(pv)+'">'+
+      '<div class="btns"><label class="file-btn">'+t('photo_upload')+'<input type="file" accept="image/*" style="display:none" onchange="pickPhoto(event)"></label>'+
+      '<button class="file-btn clear" onclick="clearPhoto()">'+t('photo_remove')+'</button></div>'+
+    '</div><input type="hidden" id="m_photo" value="'+attr(mem?mem.photo:"")+'"></div>'+
+    '<div class="two">'+
+      '<div class="field"><label>'+t('full_name')+'</label><input id="m_name" value="'+attr(mem?tx(mem.name):"")+'" placeholder="'+attr(t('full_name_ph'))+'"></div>'+
+      '<div class="field"><label>'+t('role')+'</label><input id="m_role" value="'+attr(mem?tx(mem.role):"")+'" placeholder="'+attr(t('role_ph'))+'"></div>'+
+    '</div>'+
+    '<div class="field"><label>'+t('bio')+'</label><textarea id="m_bio" placeholder="'+attr(t('bio_ph'))+'">'+esc(mem?tx(mem.bio):"")+'</textarea></div>'+
+    '<div class="two">'+
+      '<div class="field"><label>'+t('phone')+'</label><input id="m_phone" value="'+attr(mem?mem.phone:"")+'" placeholder="+998 90 123 45 67"></div>'+
+      '<div class="field"><label>'+t('email')+'</label><input id="m_email" value="'+attr(mem?mem.email:"")+'" placeholder="ism@kokanduni.uz"></div>'+
+    '</div>'+
+    '<div class="field"><label>'+t('telegram')+'</label><input id="m_tg" value="'+attr(mem?mem.telegram:"")+'" placeholder="'+attr(t('telegram_ph'))+'"></div>'+
+    '<div class="field"><label>'+t('posts_label')+'</label><div class="posts-editor" id="postsEditor"></div></div>'+
+    '<div class="form-actions"><button class="btn btn-ghost" onclick="closeForm()">'+t('cancel')+'</button>'+
+    '<button class="btn btn-primary" onclick="saveMember(\''+deptId+'\',\''+(memId||"")+'\')">'+t('save')+'</button></div>';
+  renderPostsEditor();
+  openOverlay('formOverlay');
+}
+function renderPostsEditor(){
+  var box=document.getElementById('postsEditor'); if(!box) return;
+  var html='';
+  formPosts.forEach(function(p,i){
+    html+='<div class="pe-item">'+
+      '<img src="'+attr(p.img)+'">'+
+      '<input value="'+attr(p.caption||"")+'" placeholder="'+attr(t('caption_ph'))+'" oninput="formPosts['+i+'].caption=this.value">'+
+      '<div class="rm" onclick="removePost('+i+')">'+svgTrash()+'</div>'+
+    '</div>';
+  });
+  html+='<label class="pe-add">'+t('add_photo')+'<input type="file" accept="image/*" style="display:none" onchange="addPost(event)"></label>';
+  box.innerHTML=html;
+}
+function addPost(ev){
+  var f=ev.target.files[0]; if(!f) return;
+  resizeImage(f,1000,function(data){ formPosts.push({img:data,caption:""}); renderPostsEditor(); });
+  ev.target.value="";
+}
+function removePost(i){ formPosts.splice(i,1); renderPostsEditor(); }
+function pickPhoto(ev){
+  var f=ev.target.files[0]; if(!f) return;
+  resizeImage(f,640,function(data){ document.getElementById('m_photo').value=data; document.getElementById('mPrev').src=data; });
+}
+function clearPhoto(){ document.getElementById('m_photo').value=""; document.getElementById('mPrev').src=avatarURI(document.getElementById('m_name')?document.getElementById('m_name').value:"?"); }
+function saveMember(deptId, memId){
+  var d=findDept(deptId); if(!d) return;
+  var nameV=document.getElementById('m_name').value.trim();
+  var roleV=document.getElementById('m_role').value.trim();
+  var bioV=document.getElementById('m_bio').value.trim();
+  var rest={
+    phone:document.getElementById('m_phone').value.trim(),
+    email:document.getElementById('m_email').value.trim(),
+    telegram:document.getElementById('m_tg').value.trim(),
+    photo:document.getElementById('m_photo').value,
+    posts:formPosts.slice()
+  };
+  if(!nameV && !roleV){ toast(t('t_member_req')); return; }
+  if(memId){
+    var mem=findMember(d,memId);
+    if(mem){
+      mem.name=setTx(mem.name,nameV); mem.role=setTx(mem.role,roleV); mem.bio=setTx(mem.bio,bioV);
+      for(var k in rest) mem[k]=rest[k];
+    }
+  } else {
+    if(!d.members) d.members=[];
+    var obj={ id:uid(), name:setTx(null,nameV), role:setTx(null,roleV), bio:setTx(null,bioV) };
+    for(var k2 in rest) obj[k2]=rest[k2];
+    d.members.push(obj);
+  }
+  save(); closeForm(); render(); toast(t('t_saved'));
+}
+function deleteMember(deptId, memId){
+  var d=findDept(deptId); if(!d) return;
+  var mem=findMember(d,memId); if(!mem) return;
+  if(!confirm('"'+(tx(mem.name)||tx(mem.role))+'"'+t('c_del_q'))) return;
+  d.members=d.members.filter(function(x){ return x.id!==memId; });
+  save(); render(); toast(t('t_deleted'));
+}
+/* a'zoni bo'lim ichida yuqoriga/pastga ko'chirish — birinchi a'zo "yetakchi" sifatida ko'rsatiladi */
+function moveMember(deptId, memId, dir){
+  var d=findDept(deptId); if(!d||!d.members) return;
+  var i=-1; for(var k=0;k<d.members.length;k++){ if(d.members[k].id===memId){ i=k; break; } }
+  var j=i+dir;
+  if(i<0 || j<0 || j>=d.members.length) return;
+  var tmp=d.members[i]; d.members[i]=d.members[j]; d.members[j]=tmp;
+  save(); render();
+}
+
+/* =====================================================================
+   IMAGE RESIZE (canvas -> base64)
+   ===================================================================== */
+function resizeImage(file, maxDim, cb){
+  var reader=new FileReader();
+  reader.onload=function(e){
+    var img=new Image();
+    img.onload=function(){
+      var w=img.width,h=img.height;
+      if(w>h && w>maxDim){ h=Math.round(h*maxDim/w); w=maxDim; }
+      else if(h>=w && h>maxDim){ w=Math.round(w*maxDim/h); h=maxDim; }
+      var cv=document.createElement('canvas'); cv.width=w; cv.height=h;
+      cv.getContext('2d').drawImage(img,0,0,w,h);
+      try{ cb(cv.toDataURL('image/jpeg',0.82)); }
+      catch(err){ cb(e.target.result); }
+    };
+    img.onerror=function(){ cb(e.target.result); };
+    img.src=e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+/* =====================================================================
+   SETTINGS (logo + bg video) + EXPORT/IMPORT + RESET
+   ===================================================================== */
+function currentLogo(){ return (DATA && DATA.logo) ? DATA.logo : document.getElementById('brandLogo').getAttribute('src'); }
+function currentVideo(){ return (DATA && DATA.bgVideo) ? DATA.bgVideo : EMBED_VIDEO; }
+
+function openSettings(){
+  document.getElementById('formContent').innerHTML=
+    '<h3>'+esc(t('settings_title'))+'</h3>'+
+    '<div class="field"><label>'+esc(t('logo_label'))+'</label><div class="upload">'+
+      '<img class="upload-prev" id="sLogo" src="'+attr(currentLogo())+'" style="object-fit:contain;background:rgba(255,255,255,.06)">'+
+      '<div class="btns"><label class="file-btn">'+esc(t('logo_upload'))+'<input type="file" accept="image/*" style="display:none" onchange="pickLogo(event)"></label>'+
+      '<button class="file-btn clear" onclick="resetLogo()">'+esc(t('logo_default'))+'</button></div>'+
+    '</div></div>'+
+    '<div class="field"><label>'+esc(t('video_label'))+'</label>'+
+      '<input id="s_video" value="'+attr(DATA.bgVideo||"")+'" placeholder="https://… .mp4">'+
+      '<div class="hint">'+esc(t('video_hint'))+'</div></div>'+
+    '<div class="field"><label>'+esc(t('data_manage'))+'</label>'+
+      '<button class="file-btn" style="width:100%;margin-bottom:8px" onclick="exportData()">'+esc(t('export_all'))+'</button>'+
+      '<button class="file-btn clear" style="width:100%;color:#ff9db0;border-color:rgba(220,50,80,.35)" onclick="resetAll()">'+esc(t('reset_default'))+'</button>'+
+    '</div>'+
+    '<div class="form-actions"><button class="btn btn-ghost" onclick="closeForm()">'+esc(t('cancel'))+'</button>'+
+    '<button class="btn btn-primary" onclick="saveSettings()">'+esc(t('save'))+'</button></div>';
+  openOverlay('formOverlay');
+}
+function pickLogo(ev){
+  var f=ev.target.files[0]; if(!f) return;
+  resizeImage(f,600,function(data){ DATA._tmpLogo=data; document.getElementById('sLogo').src=data; });
+}
+function resetLogo(){ DATA._tmpLogo=""; DATA._resetLogo=true; document.getElementById('sLogo').src=document.getElementById('brandLogo').getAttribute('src'); }
+function saveSettings(){
+  if(DATA._tmpLogo){ DATA.logo=DATA._tmpLogo; }
+  if(DATA._resetLogo){ DATA.logo=""; }
+  delete DATA._tmpLogo; delete DATA._resetLogo;
+  DATA.bgVideo=document.getElementById('s_video').value.trim();
+  save(); applyMedia(); closeForm(); render(); toast(t('t_settings_saved'));
+}
+function applyMedia(){
+  var v=document.getElementById('bgVideo');
+  var src=currentVideo();
+  if(src){ if(v.getAttribute('src')!==src){ v.setAttribute('src',src); v.load(); } }
+  document.getElementById('brandLogo').src=currentLogo();
+}
+function exportData(){
+  try{
+    var clean={logo:DATA.logo||"",bgVideo:DATA.bgVideo||"",depts:DATA.depts};
+    var blob=new Blob([JSON.stringify(clean,null,2)],{type:"application/json"});
+    var a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+    a.download="qu-tuzilma-"+new Date().toISOString().slice(0,10)+".json";
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    toast(t('t_export_ok'));
+  }catch(e){ toast(t('t_export_err')); }
+}
+function importData(ev){
+  var f=ev.target.files[0]; if(!f) return;
+  var r=new FileReader();
+  r.onload=function(e){
+    try{
+      var obj=JSON.parse(e.target.result);
+      if(!obj.depts) throw 0;
+      DATA=obj; if(!DATA.logo)DATA.logo=""; if(!DATA.bgVideo)DATA.bgVideo="";
+      save(); applyMedia(); goHome(); toast(t('t_import_ok'));
+    }catch(err){ toast(t('t_import_err')); }
+  };
+  r.readAsText(f); ev.target.value="";
+}
+function resetAll(){
+  if(!confirm(t('c_reset'))) return;
+  if(!getToken()){ return; }
+  /* serverdagi standart tuzilma (default-data.json) — yagona haqiqiy manba */
+  fetch(API.reset, { method:'POST', headers:{ 'Authorization':'Bearer '+getToken() } })
+    .then(function(r){
+      if(r.status===401){ onAuthLost(); throw 0; }
+      if(!r.ok){ throw 0; }
+      return r.json();
+    })
+    .then(function(res){
+      DATA = (res && res.data && res.data.depts) ? res.data : JSON.parse(JSON.stringify(DEFAULT_DATA));
+      if(!DATA.depts) DATA.depts=[];
+      normalize(DATA.depts);
+      applyMedia(); goHome(); toast(t('t_reset_ok'));
+    })
+    .catch(function(){
+      /* server javob bermasa — ichki zaxiradan */
+      DATA=JSON.parse(JSON.stringify(DEFAULT_DATA));
+      normalize(DATA.depts);
+      save(); applyMedia(); goHome(); toast(t('t_reset_ok'));
+    });
+}
+
+/* =====================================================================
+   AURORA CANVAS (fallback / ambient behind darkened video)
+   ===================================================================== */
+function startAurora(){
+  var c=document.getElementById('aurora'), x=c.getContext('2d'), W,H,blobs;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function rs(){ W=c.width=innerWidth; H=c.height=innerHeight; }
+  rs(); addEventListener('resize',rs);
+  var cols=[[47,107,255],[139,92,246],[40,224,255]];
+  blobs=[]; for(var i=0;i<3;i++){ blobs.push({x:Math.random()*W,y:Math.random()*H,r:Math.max(W,H)*(.4+Math.random()*.25),
+    dx:(Math.random()-.5)*.25,dy:(Math.random()-.5)*.25,c:cols[i]}); }
+  function draw(){
+    x.clearRect(0,0,W,H); x.globalCompositeOperation='lighter';
+    blobs.forEach(function(b){
+      b.x+=b.dx; b.y+=b.dy;
+      if(b.x<-b.r||b.x>W+b.r)b.dx*=-1; if(b.y<-b.r||b.y>H+b.r)b.dy*=-1;
+      var g=x.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r);
+      g.addColorStop(0,'rgba('+b.c[0]+','+b.c[1]+','+b.c[2]+',.16)');
+      g.addColorStop(1,'rgba('+b.c[0]+','+b.c[1]+','+b.c[2]+',0)');
+      x.fillStyle=g; x.beginPath(); x.arc(b.x,b.y,b.r,0,7); x.fill();
+    });
+    x.globalCompositeOperation='source-over';
+    if(!reduce) requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+/* =====================================================================
+   TOAST
+   ===================================================================== */
+var toastT;
+function toast(msg){
+  var t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
+  clearTimeout(toastT); toastT=setTimeout(function(){ t.classList.remove('show'); },2400);
+}
+
+/* =====================================================================
+   INIT
+   ===================================================================== */
+function runPreloader(donePromise){
+  var pre=document.getElementById('preloader'); if(!pre) return;
+  var bar=document.getElementById('preBar'), pct=document.getElementById('prePct');
+  var p=0, ready=false, hidden=false;
+  if(donePromise&&donePromise.then) donePromise.then(function(){ready=true;},function(){ready=true;});
+  function hide(){
+    if(hidden) return; hidden=true;
+    if(bar) bar.style.width='100%'; if(pct) pct.textContent='100%';
+    setTimeout(function(){ pre.classList.add('done'); setTimeout(function(){ pre.style.display='none'; },850); },220);
+  }
+  var iv=setInterval(function(){
+    var target=ready?100:88;
+    p+=Math.max(0.6,(target-p)*0.10); if(p>target)p=target;
+    if(bar) bar.style.width=p.toFixed(1)+'%';
+    if(pct) pct.textContent=Math.round(p)+'%';
+    if(p>=100){ clearInterval(iv); hide(); }
+  },55);
+  setTimeout(function(){ clearInterval(iv); hide(); },6000);   /* xavfsizlik chegarasi */
+}
+
+function boot(){
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  applyStaticI18n();                     /* saqlangan tilni statik elementlarга qo'llash */
+  startAurora();
+  // background video
+  var v=document.getElementById('bgVideo');
+  v.setAttribute('src', currentVideo());
+  v.addEventListener('loadeddata',function(){ v.classList.add('on'); });
+  var pl=v.play&&v.play(); if(pl&&pl.catch) pl.catch(function(){});
+  document.getElementById('brandLogo').src=currentLogo();
+
+  // admin holati: saqlangan token bo'lsa — vaqtincha yoqamiz, serverda tekshiramiz
+  if(getToken()){
+    document.body.classList.add('admin');
+    fetch(API.verify,{headers:{'Authorization':'Bearer '+getToken()}})
+      .then(function(r){ if(!r.ok){ clearToken(); document.body.classList.remove('admin'); render(); } })
+      .catch(function(){});
+  }
+
+  // ma'lumotni SERVERDAN yuklab, keyin chizamiz — preloader shunga bog'lanadi
+  var lp = load().then(function(){ applyMedia(); render(); });
+  runPreloader(lp);
+
+  checkHash();
+  window.addEventListener('hashchange',checkHash);
+  document.addEventListener('keydown',function(e){
+    if((e.ctrlKey||e.metaKey)&&e.shiftKey&&(e.key==='A'||e.key==='a'||e.code==='KeyA')){ e.preventDefault(); secretAdmin(); return; }
+    if(e.key==='Escape'){
+      if(document.getElementById('lightbox').classList.contains('open')){ closeLightbox(); return; }
+      if(document.getElementById('formOverlay').classList.contains('open')){ closeForm(); return; }
+      if(document.getElementById('loginOverlay').classList.contains('open')){ closeOverlay('loginOverlay'); return; }
+      if(document.getElementById('memberOverlay').classList.contains('open')){ closeMember(); return; }
+    }
+  });
+}
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',boot); else boot();
+</script>
+</body>
+</html>
